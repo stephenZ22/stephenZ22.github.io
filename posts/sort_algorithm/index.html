@@ -67,7 +67,7 @@
 </span></span><span style=display:flex><span><span style=color:#75715e># 这里要先实现一个找出数组中最小值下标的函数</span>
 </span></span><span style=display:flex><span><span style=color:#75715e># 该函数实现相对简单这里不做过多解释</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>find_smallest</span>(nums)
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>find_smallest_index</span>(nums)
 </span></span><span style=display:flex><span>  smallest_index <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
 </span></span><span style=display:flex><span>  smallest <span style=color:#f92672>=</span> nums<span style=color:#f92672>[</span><span style=color:#ae81ff>0</span><span style=color:#f92672>]</span>
 </span></span><span style=display:flex><span>  nums<span style=color:#f92672>.</span>each_with_index <span style=color:#66d9ef>do</span> <span style=color:#f92672>|</span>num, index<span style=color:#f92672>|</span>
@@ -98,7 +98,7 @@
 </span></span><span style=display:flex><span>  <span style=color:#75715e># 3. 将原数组最小值从原数组移除</span>
 </span></span><span style=display:flex><span>  <span style=color:#75715e># 4. 返回新数组</span>
 </span></span><span style=display:flex><span>  nums<span style=color:#f92672>.</span>length<span style=color:#f92672>.</span>times <span style=color:#66d9ef>do</span> <span style=color:#f92672>|</span>i<span style=color:#f92672>|</span>
-</span></span><span style=display:flex><span>    new_sort_nums <span style=color:#f92672>&lt;&lt;</span> nums<span style=color:#f92672>.</span>delete_at(find_smallest(nums))
+</span></span><span style=display:flex><span>    new_sort_nums <span style=color:#f92672>&lt;&lt;</span> nums<span style=color:#f92672>.</span>delete_at(find_smallest_index(nums))
 </span></span><span style=display:flex><span>  <span style=color:#66d9ef>end</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>  new_sort_nums
