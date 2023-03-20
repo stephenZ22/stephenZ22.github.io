@@ -3,9 +3,11 @@
 <label class="menu-button float-right" for=menu-toggle><i class="fa fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/about/>About</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=http://example.org/posts/go_syntax_basic01/>Golang 基础语法-常量</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa fa-calendar" aria-hidden=true></i>
 <time datetime=2023-03-18T20:38:22+08:00>March 18, 2023</time></span>
 <span class=reading-time><i class="fa fa-clock-o" aria-hidden=true></i>
-One-minute read</span></div></div></header><div class=post-content><h2 id=学习一门编程语言需要哪些步骤>学习一门编程语言需要哪些步骤
+2-minute read</span></div></div></header><div class=post-content><h2 id=学习一门编程语言需要哪些步骤>学习一门编程语言需要哪些步骤
 <a class=heading-link href=#%e5%ad%a6%e4%b9%a0%e4%b8%80%e9%97%a8%e7%bc%96%e7%a8%8b%e8%af%ad%e8%a8%80%e9%9c%80%e8%a6%81%e5%93%aa%e4%ba%9b%e6%ad%a5%e9%aa%a4><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><ol><li>变量定义</li><li>数据类型</li><li>条件语句</li><li>循环语句</li><li>多态继承</li><li>业务抽象</li></ol><p>个人认为掌握以上列出的 6 条，就已经掌握现代编程语言所需要的最基础以及最常用的内容。剩下的就是在使用中不断的累积该语言的规范，约定，API 及语法糖。</p><p>现代编程语言仍需掌握一个开发脚手架，例如 Ruby 语言拥有 Ruby On Rails，Sinatra。Python 拥有 Django，Php 拥有 larvael, Golang 拥有 Beego，Gin 等。</p><p>语言是框架的基础，框架是语言的业务实现。框架可以帮助开发人员，快速的将，现实生活的事物，抽象成计算机世界的对象，并且在计算机世界开始生活。</p><p>如果说 <code>Ruby</code> 是一门最程序员有好的语言，那么当先互联网 IT 行业最炙手可热的语言当数<code>Golang</code>了。我本人第一次听说 Golang 应该是在 2017 年末, 通过<code>Docker</code>了解到 Golang，</p><p>当时并没有对其产生兴趣，但后来先后有俩个同事从 Ruby 栈转到 Golang，同时北京的求职市场上<code>Ruby</code>可谓惨不忍睹，我也开始有一搭没一搭开始学习尝试使用 Golang。</p><p>说起来，从第一行<code>Hello World</code>代码，到后来使用<code>Gin</code>实现一些 API，到现在也有三年左右的时间。随着这次 Blog 迁移，我这里打算记录一下<code>Ruby</code> 程序员是如何一步步学习一门静态强类型语言的.</p><hr><p>常量、变量、类变量、临时变量、实例变量  ， <code>Ruby</code> 的世界中关于变量的定于有许多种，其实日常工作中常用的也就几个。Golang 中仿佛关于变量的定义并没有 Ruby 那么区分，但是同 Ruby 相比变量及常量的声明还是有很大区别。</p><h3 id=声明常量>声明常量
+<span class=sr-only>Link to heading</span></a></h2><ol><li>变量定义</li><li>数据类型</li><li>条件语句</li><li>循环语句</li><li>多态继承</li><li>业务抽象</li></ol><p>个人认为掌握以上列出的 6 条，就已经掌握现代编程语言所需要的最基础以及最常用的内容。剩下的就是在使用中不断的累积该语言的规范，约定，API 及语法糖。</p><p>现代编程语言仍需掌握一个开发脚手架，例如 Ruby 语言拥有 Ruby On Rails，Sinatra。Python 拥有 Django，Php 拥有 larvael, Golang 拥有 Beego，Gin 等。</p><p>语言是框架的基础，框架是语言的业务实现。框架可以帮助开发人员，快速的将，现实生活的事物，抽象成计算机世界的对象，并且在计算机世界开始生活。</p><p>如果说 <code>Ruby</code> 是一门最程序员有好的语言，那么当先互联网 IT 行业最炙手可热的语言当数<code>Golang</code>了。我本人第一次听说 Golang 应该是在 2017 年末, 通过<code>Docker</code>了解到 Golang，</p><p>当时并没有对其产生兴趣，但后来先后有俩个同事从 Ruby 栈转到 Golang，同时北京的求职市场上<code>Ruby</code>可谓惨不忍睹，我也开始有一搭没一搭开始学习尝试使用 Golang。</p><p>说起来，从第一行<code>Hello World</code>代码，到后来使用<code>Gin</code>实现一些 API，到现在也有三年左右的时间。随着这次 Blog 迁移，我这里打算记录一下<code>Ruby</code> 程序员是如何一步步学习一门静态强类型语言的.</p><hr><h2 id=golang-基础语法简介>Golang 基础语法简介
+<a class=heading-link href=#golang-%e5%9f%ba%e7%a1%80%e8%af%ad%e6%b3%95%e7%ae%80%e4%bb%8b><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h2><p>常量、变量、类变量、临时变量、实例变量  ， <code>Ruby</code> 的世界中关于变量的定于有许多种，其实日常工作中常用的也就几个。Golang 中仿佛关于变量的定义并没有 Ruby 那么区分，但还是有很大区别。</p><h3 id=声明常量>声明常量
 <a class=heading-link href=#%e5%a3%b0%e6%98%8e%e5%b8%b8%e9%87%8f><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
 <span class=sr-only>Link to heading</span></a></h3><p><code>Golang</code>中的变量及常量于大部分静态语言基本一致，需要提前进行声明其中常量声明的关键字为<code>const</code>、变量声明关键字为<code>var</code>，相信这两个关键字大家都不陌生，尤其是经常和<code>javascript</code>或<code>typescript</code>打交道的朋友。当然 golang 也提供了更加方便的变量定义语句，以及类型推断机制，以提高程序员编码效率。下面我们看一下变量及常量在<code>Golang</code>中的一些表现:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
 </span></span><span style=display:flex><span>
@@ -57,10 +59,77 @@ One-minute read</span></div></div></header><div class=post-content><h2 id=学习
 </span></span><span style=display:flex><span>男
 </span></span><span style=display:flex><span>No is false
 </span></span><span style=display:flex><span>DoublePi is 6.28
-</span></span></code></pre></div><p>Go 白皮书把上面每行含有一个等号<code>=</code>的语句称为一个常量描述（constantspecification）。 每个<code>const</code>关键字对应一个常量声明。一个常量声明中可以有若干个常量描述。 上面的例子中含有 5 个常量声明。除了第 3 个，其它的常量声明中都各自只有一个常量描述。 第 3 个常量声明中有 5 个常量描述。</p><p>在上面的例子中，符号<code>*</code>是一个乘法运算符， 符号<code>!</code>是一个布尔取否运算符。常量声明中的等号<code>=</code>表示“绑定”而非“赋值”。 每个常量描述将一个或多个字面量绑定到各自对应的具名常量上。 或者说，每个具名常量其实代表着一个字面常量。</p><p>常量可以直接声明在包中，也可以声明在函数体中。 声明在函数体中的常量称为局部常量（local constant），直接声明在包中的常量称为包级常量（package-level constant）。 包级常量也常常被称为全局常量。</p><p>包级常量声明中的常量描述的顺序并不重要。比如在上面的例子中， 常量描述<code>No</code>和<code>Yes</code>的顺序可以掉换一下。</p><h3 id=类型确定常量>类型确定常量
+</span></span></code></pre></div><p>Go 白皮书把上面每行含有一个等号<code>=</code>的语句称为一个常量描述（constant specification）。 每个<code>const</code>关键字对应一个常量声明。一个常量声明中可以有若干个常量描述。 上面的例子中含有 5 个常量声明。除了第 3 个，其它的常量声明中都各自只有一个常量描述。 第 3 个常量声明中有 5 个常量描述。</p><p>在上面的例子中，符号<code>*</code>是一个乘法运算符， 符号<code>!</code>是一个布尔取否运算符。常量声明中的等号<code>=</code>表示“绑定”而非“赋值”。 每个常量描述将一个或多个字面量绑定到各自对应的具名常量上。 或者说，每个具名常量其实代表着一个字面常量。</p><p>常量可以直接声明在包中，也可以声明在函数体中。 声明在函数体中的常量称为局部常量（local constant），直接声明在包中的常量称为包级常量（package-level constant）。 包级常量也常常被称为全局常量。</p><p>包级常量声明中的常量描述的顺序并不重要。比如在上面的例子中， 常量描述<code>No</code>和<code>Yes</code>的顺序可以掉换一下。</p><h3 id=类型确定常量>类型确定常量
 <a class=heading-link href=#%e7%b1%bb%e5%9e%8b%e7%a1%ae%e5%ae%9a%e5%b8%b8%e9%87%8f><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><h2 id=heading><a class=heading-link href=#heading><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2></div><footer></footer></article></section></div><footer class=footer><section class=container>©
+<span class=sr-only>Link to heading</span></a></h3><p>我们可以在声明一些常量的时候指定这些常量的确切类型。 这样声明的常量称为类型确定具名常量。 在下面这个例子中，所有这 4 个声明的常量都是类型确定的。 <code>X</code>和<code>Y</code>的类型都是<code>float32</code>， <code>A</code>和<code>B</code>的类型都是<code>int64</code>。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#75715e>// go_basic_const01.go
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>X</span> <span style=color:#66d9ef>float32</span> = <span style=color:#ae81ff>3.14</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 同样可以使用显式类型转换
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// const X = float32(3.14)
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 当然这里的现实类型转换必须是合法的
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>a</span> <span style=color:#66d9ef>uint</span> = <span style=color:#ae81ff>128</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 这里的 256 不能 显式转换为uint8
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// const c = uint8(256) // error: 256溢出uint8
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> (
+</span></span><span style=display:flex><span>	<span style=color:#75715e>//
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	<span style=color:#a6e22e>A</span>, <span style=color:#a6e22e>B</span> <span style=color:#66d9ef>int64</span> = <span style=color:#f92672>-</span><span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>5</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>Y</span> <span style=color:#66d9ef>float32</span> = <span style=color:#ae81ff>2.718</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;a =&gt;&#34;</span>, <span style=color:#a6e22e>a</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;A =&gt;&#34;</span>, <span style=color:#a6e22e>A</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;B =&gt;&#34;</span>, <span style=color:#a6e22e>B</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Y =&gt;&#34;</span>, <span style=color:#a6e22e>Y</span>)
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span><span style=color:#a6e22e>v</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>$ go run go_basic_const01.go
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>a <span style=color:#f92672>=</span>&gt; <span style=color:#ae81ff>128</span>
+</span></span><span style=display:flex><span>A <span style=color:#f92672>=</span>&gt; -3
+</span></span><span style=display:flex><span>B <span style=color:#f92672>=</span>&gt; <span style=color:#ae81ff>5</span>
+</span></span><span style=display:flex><span>Y <span style=color:#f92672>=</span>&gt; 2.718
+</span></span></code></pre></div><h3 id=常量的自动补全>常量的自动补全
+<a class=heading-link href=#%e5%b8%b8%e9%87%8f%e7%9a%84%e8%87%aa%e5%8a%a8%e8%a1%a5%e5%85%a8><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h3><p>在一个包含多个常量描述的常量声明中，除了第一个常量描述，其它后续的常量描述都可以只包含标识符列表部分。 Go 编译器将通过照抄前面最紧挨的一个完整的常量描述来自动补全不完整的常量描述。 比如，在编译阶段，编译器会将下面的代码</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#75715e>// go_basic_const02.go
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> <span style=color:#e6db74>&#34;fmt&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> (
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>X</span> <span style=color:#66d9ef>float32</span> = <span style=color:#ae81ff>3.14</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>Y</span>         <span style=color:#75715e>// 这里必须只有一个标识符
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	<span style=color:#a6e22e>Z</span>         <span style=color:#75715e>// 这里必须只有一个标识符
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>A</span>, <span style=color:#a6e22e>B</span> = <span style=color:#e6db74>&#34;Go&#34;</span>, <span style=color:#e6db74>&#34;Ruby&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>C</span>, <span style=color:#a6e22e>_</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;X =&gt;&#34;</span>, <span style=color:#a6e22e>X</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Y =&gt;&#34;</span>, <span style=color:#a6e22e>Y</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Z =&gt;&#34;</span>, <span style=color:#a6e22e>Z</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;A =&gt;&#34;</span>, <span style=color:#a6e22e>A</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;B =&gt;&#34;</span>, <span style=color:#a6e22e>B</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;C =&gt;&#34;</span>, <span style=color:#a6e22e>C</span>)
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>$ go run go_basic_const02.go
+</span></span><span style=display:flex><span>X <span style=color:#f92672>=</span>&gt; 3.14
+</span></span><span style=display:flex><span>Y <span style=color:#f92672>=</span>&gt; 3.14
+</span></span><span style=display:flex><span>Z <span style=color:#f92672>=</span>&gt; 3.14
+</span></span><span style=display:flex><span>A <span style=color:#f92672>=</span>&gt; Go
+</span></span><span style=display:flex><span>B <span style=color:#f92672>=</span>&gt; Ruby
+</span></span><span style=display:flex><span>C <span style=color:#f92672>=</span>&gt; Go
+</span></span></code></pre></div><h3 id=利用-iota-声明常量>利用 iota 声明常量
+<a class=heading-link href=#%e5%88%a9%e7%94%a8-iota-%e5%a3%b0%e6%98%8e%e5%b8%b8%e9%87%8f><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h3></div><footer></footer></article></section></div><footer class=footer><section class=container>©
 2019 -
 2023
 StephenZzz
