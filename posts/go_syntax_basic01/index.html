@@ -3,7 +3,7 @@
 <label class="menu-button float-right" for=menu-toggle><i class="fa fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/about/>About</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=http://example.org/posts/go_syntax_basic01/>Golang 基础语法-常量</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa fa-calendar" aria-hidden=true></i>
 <time datetime=2023-03-18T20:38:22+08:00>March 18, 2023</time></span>
 <span class=reading-time><i class="fa fa-clock-o" aria-hidden=true></i>
-2-minute read</span></div></div></header><div class=post-content><h2 id=学习一门编程语言需要哪些步骤>学习一门编程语言需要哪些步骤
+3-minute read</span></div></div></header><div class=post-content><h2 id=学习一门编程语言需要哪些步骤>学习一门编程语言需要哪些步骤
 <a class=heading-link href=#%e5%ad%a6%e4%b9%a0%e4%b8%80%e9%97%a8%e7%bc%96%e7%a8%8b%e8%af%ad%e8%a8%80%e9%9c%80%e8%a6%81%e5%93%aa%e4%ba%9b%e6%ad%a5%e9%aa%a4><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
 <span class=sr-only>Link to heading</span></a></h2><ol><li>变量定义</li><li>数据类型</li><li>条件语句</li><li>循环语句</li><li>多态继承</li><li>业务抽象</li></ol><p>个人认为掌握以上列出的 6 条，就已经掌握现代编程语言所需要的最基础以及最常用的内容。剩下的就是在使用中不断的累积该语言的规范，约定，API 及语法糖。</p><p>现代编程语言仍需掌握一个开发脚手架，例如 Ruby 语言拥有 Ruby On Rails，Sinatra。Python 拥有 Django，Php 拥有 larvael, Golang 拥有 Beego，Gin 等。</p><p>语言是框架的基础，框架是语言的业务实现。框架可以帮助开发人员，快速的将，现实生活的事物，抽象成计算机世界的对象，并且在计算机世界开始生活。</p><p>如果说 <code>Ruby</code> 是一门最程序员有好的语言，那么当先互联网 IT 行业最炙手可热的语言当数<code>Golang</code>了。我本人第一次听说 Golang 应该是在 2017 年末, 通过<code>Docker</code>了解到 Golang，</p><p>当时并没有对其产生兴趣，但后来先后有俩个同事从 Ruby 栈转到 Golang，同时北京的求职市场上<code>Ruby</code>可谓惨不忍睹，我也开始有一搭没一搭开始学习尝试使用 Golang。</p><p>说起来，从第一行<code>Hello World</code>代码，到后来使用<code>Gin</code>实现一些 API，到现在也有三年左右的时间。随着这次 Blog 迁移，我这里打算记录一下<code>Ruby</code> 程序员是如何一步步学习一门静态强类型语言的.</p><hr><h2 id=golang-基础语法简介>Golang 基础语法简介
 <a class=heading-link href=#golang-%e5%9f%ba%e7%a1%80%e8%af%ad%e6%b3%95%e7%ae%80%e4%bb%8b><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
@@ -129,7 +129,66 @@
 </span></span><span style=display:flex><span>C <span style=color:#f92672>=</span>&gt; Go
 </span></span></code></pre></div><h3 id=利用-iota-声明常量>利用 iota 声明常量
 <a class=heading-link href=#%e5%88%a9%e7%94%a8-iota-%e5%a3%b0%e6%98%8e%e5%b8%b8%e9%87%8f><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3></div><footer></footer></article></section></div><footer class=footer><section class=container>©
+<span class=sr-only>Link to heading</span></a></h3><p><code>iota</code>是 Go 中预声明（内置）的一个特殊的具名常量。 <code>iota</code>被预声明为<code>0</code>，但是它的值在编译阶段并非恒定。 当此预声明的<code>iota</code>出现在一个常量声明中的时候，它的值在第 n 个常量描述中的值为<code>n</code>（从 0 开始）。 所以<code>iota</code>只对含有多个常量描述的常量声明有意义。</p><p><code>iota</code>和常量描述自动补全相结合有的时候能够给 Go 编程带来很大便利。 比如，下面是一个使用了这两个特性的例子。 请阅读代码注释以了解清楚各个常量被绑定的值。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#75715e>// basic_const_iota.go
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> <span style=color:#e6db74>&#34;fmt&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> (
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>k</span> = <span style=color:#ae81ff>3</span> <span style=color:#75715e>// 在此处，iota == 0
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>m</span> <span style=color:#66d9ef>float32</span> = <span style=color:#66d9ef>iota</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>.5</span> <span style=color:#75715e>// m float32 = 1 + .5
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	<span style=color:#a6e22e>n</span>                     <span style=color:#75715e>// n float32 = 2 + .5
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>p</span>    = <span style=color:#ae81ff>9</span>          <span style=color:#75715e>// 在此处，iota == 3
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	<span style=color:#a6e22e>q</span>    = <span style=color:#66d9ef>iota</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>2</span>   <span style=color:#75715e>// q = 4 * 2
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	<span style=color:#a6e22e>_</span>                 <span style=color:#75715e>// _ = 5 * 2
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	<span style=color:#a6e22e>r</span>                 <span style=color:#75715e>// r = 6 * 2
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	<span style=color:#a6e22e>s</span>, <span style=color:#a6e22e>t</span> = <span style=color:#66d9ef>iota</span>, <span style=color:#66d9ef>iota</span> <span style=color:#75715e>// s, t = 7, 7
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	<span style=color:#a6e22e>u</span>, <span style=color:#a6e22e>v</span>              <span style=color:#75715e>// u, v = 8, 8
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	<span style=color:#a6e22e>_</span>, <span style=color:#a6e22e>w</span>              <span style=color:#75715e>// _, w = 9, 9
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>const</span> <span style=color:#a6e22e>x</span> = <span style=color:#66d9ef>iota</span> <span style=color:#75715e>// x = 0 （iota == 0）
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> (
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>y</span> = <span style=color:#66d9ef>iota</span> <span style=color:#75715e>// y = 0 （iota == 0）
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	<span style=color:#a6e22e>z</span>        <span style=color:#75715e>// z = 1
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 实际业务中常用定义
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>const</span> (
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>Failed</span>    = <span style=color:#66d9ef>iota</span> <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span> <span style=color:#75715e>// == -1
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	<span style=color:#a6e22e>Unknown</span>              <span style=color:#75715e>// == 0
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	<span style=color:#a6e22e>Succeeded</span>            <span style=color:#75715e>// == 1
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;m =&gt;&#34;</span>, <span style=color:#a6e22e>m</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;n =&gt;&#34;</span>, <span style=color:#a6e22e>n</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;q =&gt;&#34;</span>, <span style=color:#a6e22e>q</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;r =&gt;&#34;</span>, <span style=color:#a6e22e>r</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;s =&gt;&#34;</span>, <span style=color:#a6e22e>t</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;u =&gt;&#34;</span>, <span style=color:#a6e22e>u</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;v =&gt;&#34;</span>, <span style=color:#a6e22e>v</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;w =&gt;&#34;</span>, <span style=color:#a6e22e>w</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Failed =&gt;&#34;</span>, <span style=color:#a6e22e>Failed</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Unknown =&gt;&#34;</span>, <span style=color:#a6e22e>Unknown</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Succeeded =&gt;&#34;</span>, <span style=color:#a6e22e>Succeeded</span>)
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>go run basic_const_iota.go
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>m <span style=color:#f92672>=</span>&gt; 1.5
+</span></span><span style=display:flex><span>n <span style=color:#f92672>=</span>&gt; 2.5
+</span></span><span style=display:flex><span>q <span style=color:#f92672>=</span>&gt; <span style=color:#ae81ff>8</span>
+</span></span><span style=display:flex><span>r <span style=color:#f92672>=</span>&gt; <span style=color:#ae81ff>12</span>
+</span></span><span style=display:flex><span>s <span style=color:#f92672>=</span>&gt; <span style=color:#ae81ff>7</span>
+</span></span><span style=display:flex><span>u <span style=color:#f92672>=</span>&gt; <span style=color:#ae81ff>8</span>
+</span></span><span style=display:flex><span>v <span style=color:#f92672>=</span>&gt; <span style=color:#ae81ff>8</span>
+</span></span><span style=display:flex><span>w <span style=color:#f92672>=</span>&gt; <span style=color:#ae81ff>9</span>
+</span></span><span style=display:flex><span>Failed <span style=color:#f92672>=</span>&gt; -1
+</span></span><span style=display:flex><span>Unknown <span style=color:#f92672>=</span>&gt; <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>Succeeded <span style=color:#f92672>=</span>&gt; <span style=color:#ae81ff>1</span>
+</span></span></code></pre></div></div><footer></footer></article></section></div><footer class=footer><section class=container>©
 2019 -
 2023
 StephenZzz
