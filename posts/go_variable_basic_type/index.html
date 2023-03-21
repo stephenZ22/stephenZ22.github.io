@@ -9,7 +9,44 @@ One-minute read</span></div><div class=categories><i class="fa fa-folder" aria-h
 <span class=separator>•</span>
 <span class=tag><a href=/tags/%E4%BD%9C%E7%94%A8%E5%9F%9F/>作用域</a></span></div></div></header><div class=post-content><h2 id=变量声明>变量声明
 <a class=heading-link href=#%e5%8f%98%e9%87%8f%e5%a3%b0%e6%98%8e><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><h2 id=基本类型>基本类型
+<span class=sr-only>Link to heading</span></a></h2><p>在<code>Goalng</code>中声明变量有两种形式一种为标准形式，一种为短声明形式。标准形式的变量声明需要用到的<code>var</code>关键字。每个<code>var</code>关键字后面跟随一个变量名。下面演示这两种变量声明形式：</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#75715e>// go_variable_basic.go
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> <span style=color:#e6db74>&#34;fmt&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 在函数外部声明的变量为全局变量或者包变量
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// 在函数内部声明的变量为局部变量
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 标准形式 全局变量
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>name</span>, <span style=color:#a6e22e>addr</span> <span style=color:#66d9ef>string</span> = <span style=color:#e6db74>&#34;张学友&#34;</span>, <span style=color:#e6db74>&#34;中国香港&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>age</span> <span style=color:#66d9ef>int</span> = <span style=color:#ae81ff>62</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 标准形式利用类型推断
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>school</span> = <span style=color:#e6db74>&#34;北京大学&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>since</span> = <span style=color:#ae81ff>1898</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 标准形式的省略初始值, 利用各自类型的默认值声明
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>language</span> <span style=color:#66d9ef>string</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>compiled</span> <span style=color:#66d9ef>bool</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>var</span> <span style=color:#a6e22e>number</span> <span style=color:#66d9ef>int</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>name</span>, <span style=color:#a6e22e>addr</span>, <span style=color:#a6e22e>age</span>, <span style=color:#a6e22e>school</span>, <span style=color:#a6e22e>language</span>, <span style=color:#a6e22e>compiled</span>, <span style=color:#a6e22e>number</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#75715e>// 短声明形式只可在函数内部使用，用来声明局部变量
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	<span style=color:#75715e>// 注意！！！
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	<span style=color:#75715e>// golang 当一个局部变量被声明之后至少要被使用一次
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	<span style=color:#75715e>// 否则编译器将会报错， 全局变量则不受此限制
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>bookName</span> <span style=color:#f92672>:=</span> <span style=color:#e6db74>&#34;局外人&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>bookName</span>)
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>go run go_variable_basic.go
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>张学友 中国香港 <span style=color:#ae81ff>62</span> 北京大学  false <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>局外人
+</span></span></code></pre></div><h2 id=基本类型>基本类型
 <a class=heading-link href=#%e5%9f%ba%e6%9c%ac%e7%b1%bb%e5%9e%8b><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
 <span class=sr-only>Link to heading</span></a></h2></div><footer></footer></article></section></div><footer class=footer><section class=container>©
 2020 -
