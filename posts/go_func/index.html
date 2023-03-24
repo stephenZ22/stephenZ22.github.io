@@ -88,6 +88,55 @@
 </span></span><span style=display:flex><span><span style=color:#ae81ff>2</span> <span style=color:#ae81ff>3</span> <span style=color:#ae81ff>4</span>
 </span></span><span style=display:flex><span>---Function addTwo<span style=color:#f92672>()</span>----
 </span></span><span style=display:flex><span>Current d: <span style=color:#ae81ff>6</span>
+</span></span></code></pre></div><h3 id=匿名函数>匿名函数
+<a class=heading-link href=#%e5%8c%bf%e5%90%8d%e5%87%bd%e6%95%b0><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h3><p>Golang 支持匿名函数，既未指定函数名的函数。匿名函数<strong>不能独立存在在包</strong>中, 匿名函数可以在<strong>函数内部调用</strong>，也可以做<strong>参数传递</strong>。这样的形式类似于 Ruby 中的<code>block</code>,下面我们实现几个匿名函数的例子:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#75715e>// go_func02.go
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> <span style=color:#e6db74>&#34;fmt&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 匿名函数作为参数，实现回调函数
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>sumNumbers</span>(<span style=color:#a6e22e>numbers</span> []<span style=color:#66d9ef>int</span>, <span style=color:#a6e22e>callback</span> <span style=color:#66d9ef>func</span>(<span style=color:#66d9ef>int</span>)) {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>i</span> <span style=color:#f92672>:=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>for</span> <span style=color:#a6e22e>_</span>, <span style=color:#a6e22e>n</span> <span style=color:#f92672>:=</span> <span style=color:#66d9ef>range</span> <span style=color:#a6e22e>numbers</span> {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>i</span> <span style=color:#f92672>+=</span> <span style=color:#a6e22e>n</span>
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>callback</span>(<span style=color:#a6e22e>i</span>)
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#75715e>// 小括号代表匿名函数立即执行
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	<span style=color:#66d9ef>func</span>() {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;我是一个无需参数无返回值的匿名函数&#34;</span>)
+</span></span><span style=display:flex><span>	}()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#75715e>// 可以将匿名函数赋值给函数变量
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	<span style=color:#a6e22e>doubleNumber</span> <span style=color:#f92672>:=</span> <span style=color:#66d9ef>func</span>(<span style=color:#a6e22e>n</span> <span style=color:#66d9ef>int</span>) <span style=color:#66d9ef>int</span> {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;doubleNumber function&#34;</span>)
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>return</span> <span style=color:#a6e22e>n</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>n</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>doubleNumber</span>(<span style=color:#ae81ff>2</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>n</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>sumNumbers</span>([]<span style=color:#66d9ef>int</span>{<span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>2</span>, <span style=color:#ae81ff>3</span>, <span style=color:#ae81ff>4</span>, <span style=color:#ae81ff>5</span>}, <span style=color:#66d9ef>func</span>(<span style=color:#a6e22e>i</span> <span style=color:#66d9ef>int</span>) {
+</span></span><span style=display:flex><span>		<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>i</span> &gt; <span style=color:#ae81ff>5</span> {
+</span></span><span style=display:flex><span>			<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;总和大于五&#34;</span>)
+</span></span><span style=display:flex><span>		} <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>5</span> {
+</span></span><span style=display:flex><span>			<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;总和等于五&#34;</span>)
+</span></span><span style=display:flex><span>		} <span style=color:#66d9ef>else</span> {
+</span></span><span style=display:flex><span>			<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;总和小于五&#34;</span>)
+</span></span><span style=display:flex><span>		}
+</span></span><span style=display:flex><span>	})
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>$ go run go_func02.go
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>我是一个无需参数无返回值的匿名函数
+</span></span><span style=display:flex><span>doubleNumber <span style=color:#66d9ef>function</span>
+</span></span><span style=display:flex><span><span style=color:#ae81ff>4</span>
+</span></span><span style=display:flex><span>总和大于五
+</span></span><span style=display:flex><span><span style=color:#e6db74>```</span>s
 </span></span></code></pre></div></div><footer></footer></article></section></div><footer class=footer><section class=container>©
 2020 -
 2023
