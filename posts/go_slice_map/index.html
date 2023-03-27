@@ -79,7 +79,7 @@ package main import &#34;fmt&#34; func sum(arr [5]int) (sum int) { sum = 0 for i
 </span></span><span style=display:flex><span>names2: <span style=color:#f92672>[</span>0<span style=color:#f92672>]</span>string, <span style=color:#f92672>[]</span>
 </span></span></code></pre></div><p>由上可知 Golang 中数组的完整类型为元素长度及元素类型所组成。</p><p>同时在 Golang 中数组长度一旦被程序员指定，或由编译器推断则不可修改。为此 Golang 提供了<code>Slice</code> 切片来方便程序员操作数组，切片的底层是由数组所实现。</p><h2 id=golang-切片>Golang 切片
 <a class=heading-link href=#golang-%e5%88%87%e7%89%87><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#75715e>// go_slice.go
+<span class=sr-only>Link to heading</span></a></h2><p>Go 语言切片是对数组的抽象。</p><p>Go 数组的长度不可改变，在特定场景中这样的集合就不太适用，Go 中提供了一种灵活，功能强悍的内置类型切片(&ldquo;动态数组&rdquo;)，与数组相比切片的长度是不固定的，可以追加元素，在追加时可能使切片的容量增大。</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#75715e>// go_slice.go
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>
 </span></span><span style=display:flex><span><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
 </span></span><span style=display:flex><span>
