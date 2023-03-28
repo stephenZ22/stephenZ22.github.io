@@ -1,12 +1,141 @@
-<!doctype html><html lang=en><head><title>Golang基础-Interface · Stephen’s Life</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="StephenZzz"><meta name=description content=" Golang Interface Link to heading "><meta name=keywords content="blog,developer,personal,ruby,golang"><meta name=twitter:card content="summary"><meta name=twitter:title content="Golang基础-Interface"><meta name=twitter:description content=" Golang Interface Link to heading "><meta property="og:title" content="Golang基础-Interface"><meta property="og:description" content=" Golang Interface Link to heading "><meta property="og:type" content="article"><meta property="og:url" content="https://stephenz22.github.io/posts/go_interface/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-03-28T19:39:47+08:00"><meta property="article:modified_time" content="2023-03-28T19:39:47+08:00"><link rel=canonical href=https://stephenz22.github.io/posts/go_interface/><link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.0669b62fc2c181a12a4ba10be9984e385c9a5e83dc7cb7ae3759ad0b98d7e8b2.css integrity="sha256-Bmm2L8LBgaEqS6EL6ZhOOFyaXoPcfLeuN1mtC5jX6LI=" crossorigin=anonymous media=screen><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5><meta name=generator content="Hugo 0.111.3"></head><body class="preload-transitions colorscheme-light"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>Stephen’s Life</a>
+<!doctype html><html lang=en><head><title>Golang基础-Interface · Stephen’s Life</title><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=color-scheme content="light dark"><meta name=author content="StephenZzz"><meta name=description content="Golang Interface Link to heading Golang 中的接口就是一组方法的签名。接口是 Golang 整个类型系统的基石，其他语言的接口是不同组件之间的契约的存在，对契约的实现是强制性的，必须显式声明实现了该接口，这类接口称之为“侵入式接口”。而 Golang 的接口是隐式存在，只要实现了该接口的所有函数则代表已经实现了该接口，并不需要显式的接口声明
+// go_interface.go package main import ( &#34;fmt&#34; &#34;unsafe&#34; ) // Golang 中接口可以看作是一组方法的集合 // 当一个类型 T 实现了 I 接口的全部方法 我们可以认为 // T 类型实现了这个接口 // 这里暂时可以认为 T类型是 I 接口的子类（但要清楚 Golang 没有class 继承的概念） // 定义一个 Person 接口 type Person interface { walk() take() speak() } // 定义一个Human 结构体 type Human struct { Name string Age int } // 定义一个Adult 结构体 引入Human type Adult struct { Human WorkAddrs string } // Adult 以下三个方法 实现了 Person Interface 中定义的函数 func (a Adult) walk() { fmt."><meta name=keywords content="blog,developer,personal,ruby,golang"><meta name=twitter:card content="summary"><meta name=twitter:title content="Golang基础-Interface"><meta name=twitter:description content="Golang Interface Link to heading Golang 中的接口就是一组方法的签名。接口是 Golang 整个类型系统的基石，其他语言的接口是不同组件之间的契约的存在，对契约的实现是强制性的，必须显式声明实现了该接口，这类接口称之为“侵入式接口”。而 Golang 的接口是隐式存在，只要实现了该接口的所有函数则代表已经实现了该接口，并不需要显式的接口声明
+// go_interface.go package main import ( &#34;fmt&#34; &#34;unsafe&#34; ) // Golang 中接口可以看作是一组方法的集合 // 当一个类型 T 实现了 I 接口的全部方法 我们可以认为 // T 类型实现了这个接口 // 这里暂时可以认为 T类型是 I 接口的子类（但要清楚 Golang 没有class 继承的概念） // 定义一个 Person 接口 type Person interface { walk() take() speak() } // 定义一个Human 结构体 type Human struct { Name string Age int } // 定义一个Adult 结构体 引入Human type Adult struct { Human WorkAddrs string } // Adult 以下三个方法 实现了 Person Interface 中定义的函数 func (a Adult) walk() { fmt."><meta property="og:title" content="Golang基础-Interface"><meta property="og:description" content="Golang Interface Link to heading Golang 中的接口就是一组方法的签名。接口是 Golang 整个类型系统的基石，其他语言的接口是不同组件之间的契约的存在，对契约的实现是强制性的，必须显式声明实现了该接口，这类接口称之为“侵入式接口”。而 Golang 的接口是隐式存在，只要实现了该接口的所有函数则代表已经实现了该接口，并不需要显式的接口声明
+// go_interface.go package main import ( &#34;fmt&#34; &#34;unsafe&#34; ) // Golang 中接口可以看作是一组方法的集合 // 当一个类型 T 实现了 I 接口的全部方法 我们可以认为 // T 类型实现了这个接口 // 这里暂时可以认为 T类型是 I 接口的子类（但要清楚 Golang 没有class 继承的概念） // 定义一个 Person 接口 type Person interface { walk() take() speak() } // 定义一个Human 结构体 type Human struct { Name string Age int } // 定义一个Adult 结构体 引入Human type Adult struct { Human WorkAddrs string } // Adult 以下三个方法 实现了 Person Interface 中定义的函数 func (a Adult) walk() { fmt."><meta property="og:type" content="article"><meta property="og:url" content="https://stephenz22.github.io/posts/go_interface/"><meta property="article:section" content="posts"><meta property="article:published_time" content="2023-03-28T19:39:47+08:00"><meta property="article:modified_time" content="2023-03-28T19:39:47+08:00"><link rel=canonical href=https://stephenz22.github.io/posts/go_interface/><link rel=preload href="/fonts/forkawesome-webfont.woff2?v=1.2.0" as=font type=font/woff2 crossorigin><link rel=stylesheet href=/css/coder.min.0669b62fc2c181a12a4ba10be9984e385c9a5e83dc7cb7ae3759ad0b98d7e8b2.css integrity="sha256-Bmm2L8LBgaEqS6EL6ZhOOFyaXoPcfLeuN1mtC5jX6LI=" crossorigin=anonymous media=screen><link rel=icon type=image/png href=/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=/images/favicon-16x16.png sizes=16x16><link rel=apple-touch-icon href=/images/apple-touch-icon.png><link rel=apple-touch-icon sizes=180x180 href=/images/apple-touch-icon.png><link rel=manifest href=/site.webmanifest><link rel=mask-icon href=/images/safari-pinned-tab.svg color=#5bbad5><meta name=generator content="Hugo 0.111.3"></head><body class="preload-transitions colorscheme-light"><div class=float-container><a id=dark-mode-toggle class=colorscheme-toggle><i class="fa fa-adjust fa-fw" aria-hidden=true></i></a></div><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>Stephen’s Life</a>
 <input type=checkbox id=menu-toggle>
 <label class="menu-button float-right" for=menu-toggle><i class="fa fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/about/>About</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://stephenz22.github.io/posts/go_interface/>Golang基础-Interface</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa fa-calendar" aria-hidden=true></i>
 <time datetime=2023-03-28T19:39:47+08:00>March 28, 2023</time></span>
 <span class=reading-time><i class="fa fa-clock-o" aria-hidden=true></i>
-One-minute read</span></div><div class=categories><i class="fa fa-folder" aria-hidden=true></i>
+2-minute read</span></div><div class=categories><i class="fa fa-folder" aria-hidden=true></i>
 <a href=/categories/golang/>Golang</a></div></div></header><div class=post-content><h2 id=golang-interface>Golang Interface
 <a class=heading-link href=#golang-interface><i class="fa fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h2></div><footer></footer></article></section></div><footer class=footer><section class=container>©
+<span class=sr-only>Link to heading</span></a></h2><p>Golang 中的接口就是一组方法的签名。接口是 Golang 整个类型系统的基石，其他语言的接口是不同组件之间的契约的存在，对契约的实现是强制性的，必须显式声明实现了该接口，这类接口称之为“侵入式接口”。而 Golang 的接口是隐式存在，只要实现了该接口的所有函数则代表已经实现了该接口，并不需要显式的接口声明</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-go data-lang=go><span style=display:flex><span><span style=color:#75715e>// go_interface.go
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#f92672>package</span> <span style=color:#a6e22e>main</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>import</span> (
+</span></span><span style=display:flex><span>	<span style=color:#e6db74>&#34;fmt&#34;</span>
+</span></span><span style=display:flex><span>	<span style=color:#e6db74>&#34;unsafe&#34;</span>
+</span></span><span style=display:flex><span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Golang 中接口可以看作是一组方法的集合
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// 当一个类型 T 实现了 I 接口的全部方法 我们可以认为
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// T 类型实现了这个接口
+</span></span></span><span style=display:flex><span><span style=color:#75715e>// 这里暂时可以认为 T类型是 I 接口的子类（但要清楚 Golang 没有class 继承的概念）
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 定义一个 Person 接口
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Person</span> <span style=color:#66d9ef>interface</span> {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>walk</span>()
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>take</span>()
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>speak</span>()
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 定义一个Human 结构体
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Human</span> <span style=color:#66d9ef>struct</span> {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>Name</span> <span style=color:#66d9ef>string</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>Age</span>  <span style=color:#66d9ef>int</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 定义一个Adult 结构体 引入Human
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Adult</span> <span style=color:#66d9ef>struct</span> {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>Human</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>WorkAddrs</span> <span style=color:#66d9ef>string</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Adult 以下三个方法 实现了 Person Interface 中定义的函数
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>a</span> <span style=color:#a6e22e>Adult</span>) <span style=color:#a6e22e>walk</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>a</span>.<span style=color:#a6e22e>Name</span>, <span style=color:#e6db74>&#34;Adult walk &#34;</span>)
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>a</span> <span style=color:#a6e22e>Adult</span>) <span style=color:#a6e22e>take</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>a</span>.<span style=color:#a6e22e>Name</span>, <span style=color:#e6db74>&#34;Adult take &#34;</span>)
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>a</span> <span style=color:#a6e22e>Adult</span>) <span style=color:#a6e22e>speak</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>a</span>.<span style=color:#a6e22e>Name</span>, <span style=color:#e6db74>&#34;Adult speak&#34;</span>)
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>a</span> <span style=color:#a6e22e>Adult</span>) <span style=color:#a6e22e>work</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>a</span>.<span style=color:#a6e22e>Name</span>, <span style=color:#e6db74>&#34;Adult Work hard&#34;</span>)
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 定义一个Child 结构体 引入Human
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>type</span> <span style=color:#a6e22e>Child</span> <span style=color:#66d9ef>struct</span> {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>Human</span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>SchoolAddrs</span> <span style=color:#66d9ef>string</span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// Child 以下三个方法 实现了 Person Interface 中定义的函数
+</span></span></span><span style=display:flex><span><span style=color:#75715e>//
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>c</span> <span style=color:#a6e22e>Child</span>) <span style=color:#a6e22e>walk</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Child walk &#34;</span>)
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>c</span> <span style=color:#a6e22e>Child</span>) <span style=color:#a6e22e>take</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Child take &#34;</span>)
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>c</span> <span style=color:#a6e22e>Child</span>) <span style=color:#a6e22e>speak</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Child speak&#34;</span>)
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>c</span> <span style=color:#a6e22e>Child</span>) <span style=color:#a6e22e>study</span>() {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Child study&#34;</span>)
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// 接受类型为 Person interface的参数
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>personDo</span>(<span style=color:#a6e22e>p</span> <span style=color:#a6e22e>Person</span>) {
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>p</span>.<span style=color:#a6e22e>walk</span>()
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>p</span>.<span style=color:#a6e22e>take</span>()
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>p</span>.<span style=color:#a6e22e>speak</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#75715e>// 类型断言
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	<span style=color:#75715e>// 根据类型执行对应类型的不同方法
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>	<span style=color:#66d9ef>if</span> <span style=color:#a6e22e>c</span>, <span style=color:#a6e22e>ok</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>p</span>.(<span style=color:#a6e22e>Child</span>); <span style=color:#a6e22e>ok</span> {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>study</span>()
+</span></span><span style=display:flex><span>	} <span style=color:#66d9ef>else</span> <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>c</span>, <span style=color:#a6e22e>ok</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>p</span>.(<span style=color:#a6e22e>Adult</span>); <span style=color:#a6e22e>ok</span> {
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>work</span>()
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>a</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>Adult</span>{
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>Human</span>: <span style=color:#a6e22e>Human</span>{
+</span></span><span style=display:flex><span>			<span style=color:#a6e22e>Name</span>: <span style=color:#e6db74>&#34;李建军&#34;</span>,
+</span></span><span style=display:flex><span>			<span style=color:#a6e22e>Age</span>:  <span style=color:#ae81ff>45</span>,
+</span></span><span style=display:flex><span>		},
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>WorkAddrs</span>: <span style=color:#e6db74>&#34;西二旗&#34;</span>,
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>unsafe</span>.<span style=color:#a6e22e>Pointer</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>a</span>.<span style=color:#a6e22e>Human</span>.<span style=color:#a6e22e>Age</span>))
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>unsafe</span>.<span style=color:#a6e22e>Pointer</span>(<span style=color:#f92672>&amp;</span><span style=color:#a6e22e>a</span>.<span style=color:#a6e22e>Age</span>))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>personDo</span>(<span style=color:#a6e22e>a</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>c</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>Child</span>{
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>Human</span>: <span style=color:#a6e22e>Human</span>{
+</span></span><span style=display:flex><span>			<span style=color:#a6e22e>Name</span>: <span style=color:#e6db74>&#34;李子涵&#34;</span>,
+</span></span><span style=display:flex><span>			<span style=color:#a6e22e>Age</span>:  <span style=color:#ae81ff>9</span>,
+</span></span><span style=display:flex><span>		},
+</span></span><span style=display:flex><span>		<span style=color:#a6e22e>SchoolAddrs</span>: <span style=color:#e6db74>&#34;人大附小&#34;</span>,
+</span></span><span style=display:flex><span>	}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>personDo</span>(<span style=color:#a6e22e>c</span>)
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-shell data-lang=shell><span style=display:flex><span>$ go run go_interface.go
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>0xc0000a0190
+</span></span><span style=display:flex><span>0xc0000a0190
+</span></span><span style=display:flex><span>李建军 Adult walk
+</span></span><span style=display:flex><span>李建军 Adult take
+</span></span><span style=display:flex><span>李建军 Adult speak
+</span></span><span style=display:flex><span>李建军 Adult Work hard
+</span></span><span style=display:flex><span>Child walk
+</span></span><span style=display:flex><span>Child take
+</span></span><span style=display:flex><span>Child speak
+</span></span><span style=display:flex><span>Child study
+</span></span></code></pre></div></div><footer></footer></article></section></div><footer class=footer><section class=container>©
 2020 -
 2023
 StephenZzz
