@@ -68,19 +68,19 @@
 </span></span><span style=display:flex><span><span style=color:#75715e>// Child 以下三个方法 实现了 Person Interface 中定义的函数
 </span></span></span><span style=display:flex><span><span style=color:#75715e>//
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>c</span> <span style=color:#a6e22e>Child</span>) <span style=color:#a6e22e>walk</span>() {
-</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Child walk &#34;</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>Name</span>, <span style=color:#e6db74>&#34;Child walk &#34;</span>)
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>c</span> <span style=color:#a6e22e>Child</span>) <span style=color:#a6e22e>take</span>() {
-</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Child take &#34;</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>Name</span>, <span style=color:#e6db74>&#34;Child take &#34;</span>)
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>c</span> <span style=color:#a6e22e>Child</span>) <span style=color:#a6e22e>speak</span>() {
-</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Child speak&#34;</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>Name</span>, <span style=color:#e6db74>&#34;Child speak&#34;</span>)
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> (<span style=color:#a6e22e>c</span> <span style=color:#a6e22e>Child</span>) <span style=color:#a6e22e>study</span>() {
-</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#e6db74>&#34;Child study&#34;</span>)
+</span></span><span style=display:flex><span>	<span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Println</span>(<span style=color:#a6e22e>c</span>.<span style=color:#a6e22e>Name</span> <span style=color:#e6db74>&#34;Child study&#34;</span>)
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e>// 接受类型为 Person interface的参数
@@ -131,10 +131,10 @@
 </span></span><span style=display:flex><span>李建军 Adult take
 </span></span><span style=display:flex><span>李建军 Adult speak
 </span></span><span style=display:flex><span>李建军 Adult Work hard
-</span></span><span style=display:flex><span>Child walk
-</span></span><span style=display:flex><span>Child take
-</span></span><span style=display:flex><span>Child speak
-</span></span><span style=display:flex><span>Child study
+</span></span><span style=display:flex><span>李子涵 Child walk
+</span></span><span style=display:flex><span>李子涵 Child take
+</span></span><span style=display:flex><span>李子涵 Child speak
+</span></span><span style=display:flex><span>李子涵 Child study
 </span></span></code></pre></div></div><footer></footer></article></section></div><footer class=footer><section class=container>©
 2020 -
 2023
