@@ -10,3 +10,4 @@ categories = []
 externalLink = ""
 series = []
 +++
+![Stephen Avatar](/images/posts/python-basic.png)
