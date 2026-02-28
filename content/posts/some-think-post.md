@@ -4,5 +4,13 @@ draft = false
 title = 'Everything is alright'
 +++
 
-![Stephen Avatar](/images/posts/cow.jpg)
-### Everything is alright.
+<!-- ![cow](/images/posts/cow.jpg) -->
+![Stephen Avatar](/images/about.jpg)
+
+
+ture/true 这个单词应该是我工作开始遇到的第一个bug, 那是2016年我工作的第一年. 当时是在一个工作流引擎内构建公司业务流程图，然后在流程图内编写Groovy来作业务逻辑的编码实现. 那时在页面内写程序好像没有太多的提示，写完要run一下甚至是要把流程完整跑一下才能知道有什么明显的bug.很难想象当时这个小问题我排查了大概两个小时，现在 AI编程 Vibe Coding 两个小时一个项目都写完了.时间过去了十年，编程这件事无论是学习还是工作中实际开发发生了难以置信的变化.
+
+
+
+
+还有一个我工作初期映像深刻的bug是 if foo = bar. 这两个错误很简单 一个是拼写错误，一个也是拼写错误. 当然后现在我几乎很少写这样的低级bug, 

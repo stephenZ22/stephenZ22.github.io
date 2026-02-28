@@ -2,7 +2,6 @@
 date = '2026-02-27T22:49:36+08:00'
 draft = false
 title = 'About'
-image = 'images/about/avatar.jpg'
 +++
 
 ![Stephen Avatar](/images/about.jpg)
