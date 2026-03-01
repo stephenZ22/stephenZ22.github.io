@@ -1,4 +1,67 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on StephenZzz</title><link>https://StephenZ22.github.io/posts/</link><description>Recent content in Posts on StephenZzz</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sat, 28 Feb 2026 17:24:51 +0800</lastBuildDate><atom:link href="https://StephenZ22.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Python zero to hero-00</title><link>https://StephenZ22.github.io/posts/python-zero-to-hero-00/</link><pubDate>Sat, 28 Feb 2026 17:24:51 +0800</pubDate><guid>https://StephenZ22.github.io/posts/python-zero-to-hero-00/</guid><description>&lt;p&gt;&lt;img src="https://StephenZ22.github.io/images/posts/python-basic.png" alt="Stephen Avatar"&gt;&lt;/p&gt;</description></item><item><title>Everything is alright</title><link>https://StephenZ22.github.io/posts/some-think-post/</link><pubDate>Fri, 27 Feb 2026 23:52:41 +0800</pubDate><guid>https://StephenZ22.github.io/posts/some-think-post/</guid><description>&lt;p&gt;&lt;img src="https://StephenZ22.github.io/images/about.jpg" alt="Stephen Avatar"&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on StephenZzz</title><link>https://StephenZ22.github.io/posts/</link><description>Recent content in Posts on StephenZzz</description><generator>Hugo</generator><language>en</language><lastBuildDate>Sat, 28 Feb 2026 17:24:51 +0800</lastBuildDate><atom:link href="https://StephenZ22.github.io/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Python zero to hero-I</title><link>https://StephenZ22.github.io/posts/python-zero-to-hero-00/</link><pubDate>Sat, 28 Feb 2026 17:24:51 +0800</pubDate><guid>https://StephenZ22.github.io/posts/python-zero-to-hero-00/</guid><description>&lt;p&gt;&lt;img src="https://StephenZ22.github.io/images/posts/python-z2h/python-basic.png" alt="Stephen Avatar"&gt;&lt;/p&gt;
+&lt;p&gt;编程语言用的多了难免有些混乱, 有段时间写c++ 看到指针操作符 &lt;strong&gt;-&amp;gt;&lt;/strong&gt; 总和golang chanel联系起来.
+接下来打算先从python开始做一个技术回顾,记录一些我对python的一些理解.&lt;/p&gt;
+&lt;h3 id="函数定义与调用"&gt;
+ 函数定义与调用
+ &lt;a class="heading-link" href="#%e5%87%bd%e6%95%b0%e5%ae%9a%e4%b9%89%e4%b8%8e%e8%b0%83%e7%94%a8"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h3&gt;
+&lt;p&gt;我认为函数是程序运行的最小单元,程序有职责不同的函数组合调用完成要执行的任务, python 中定一个函数的格式是&lt;code&gt;def 函数名称():&lt;/code&gt;, 函数可以接受一个或多个参数以及不接受任何参数，不同参数在&lt;code&gt;()&lt;/code&gt;中使用&lt;code&gt;,&lt;/code&gt;分割. 如果函数有返回值使用 &lt;code&gt;return&lt;/code&gt;关键字进行返回, 如果没有使用&lt;code&gt;return&lt;/code&gt;关键字函数会return 一个None.下面根据参数的不同来对函数做一个回顾&lt;/p&gt;
+&lt;hr&gt;
+&lt;h4 id="简单函数"&gt;
+ 简单函数
+ &lt;a class="heading-link" href="#%e7%ae%80%e5%8d%95%e5%87%bd%e6%95%b0"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 不接受任何参数&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff7b72"&gt;def&lt;/span&gt; &lt;span style="color:#d2a8ff;font-weight:bold"&gt;simple_function&lt;/span&gt;():
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; print(&lt;span style="color:#a5d6ff"&gt;&amp;#34;this is simple&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;simple_function()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# run&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#ff7b72;font-weight:bold"&gt;.&lt;/span&gt;venv) &lt;span style="color:#f85149"&gt;➜&lt;/span&gt; python&lt;span style="color:#ff7b72;font-weight:bold"&gt;-&lt;/span&gt;basic python baisc&lt;span style="color:#ff7b72;font-weight:bold"&gt;/&lt;/span&gt;basic&lt;span style="color:#ff7b72;font-weight:bold"&gt;-&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;01.&lt;/span&gt;py
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;this &lt;span style="color:#ff7b72;font-weight:bold"&gt;is&lt;/span&gt; simple
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#ff7b72;font-weight:bold"&gt;.&lt;/span&gt;venv) &lt;span style="color:#f85149"&gt;➜&lt;/span&gt; python&lt;span style="color:#ff7b72;font-weight:bold"&gt;-&lt;/span&gt;basic 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h4 id="固定参数的函数"&gt;
+ 固定参数的函数
+ &lt;a class="heading-link" href="#%e5%9b%ba%e5%ae%9a%e5%8f%82%e6%95%b0%e7%9a%84%e5%87%bd%e6%95%b0"&gt;
+ &lt;i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"&gt;&lt;/i&gt;
+ &lt;span class="sr-only"&gt;Link to heading&lt;/span&gt;
+ &lt;/a&gt;
+&lt;/h4&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 接收一个&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff7b72"&gt;def&lt;/span&gt; &lt;span style="color:#d2a8ff;font-weight:bold"&gt;paly&lt;/span&gt;(game):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; print(&lt;span style="color:#79c0ff"&gt;f&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;&amp;#34;玩&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;{&lt;/span&gt;game&lt;span style="color:#a5d6ff"&gt;}&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# 接收多个&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff7b72"&gt;def&lt;/span&gt; &lt;span style="color:#d2a8ff;font-weight:bold"&gt;say_hi&lt;/span&gt;(name, age):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; print(&lt;span style="color:#79c0ff"&gt;f&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;&amp;#34;我是&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;{&lt;/span&gt;name&lt;span style="color:#a5d6ff"&gt;}&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;, 我今年&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;{&lt;/span&gt;age&lt;span style="color:#a5d6ff"&gt;}&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;了&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#ff7b72"&gt;def&lt;/span&gt; &lt;span style="color:#d2a8ff;font-weight:bold"&gt;detail_say_hi&lt;/span&gt;(name,age,school):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; print(&lt;span style="color:#79c0ff"&gt;f&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;&amp;#34;我是&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;{&lt;/span&gt;name&lt;span style="color:#a5d6ff"&gt;}&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;, 我今年&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;{&lt;/span&gt;age&lt;span style="color:#a5d6ff"&gt;}&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;, 我在&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;{&lt;/span&gt;school&lt;span style="color:#a5d6ff"&gt;}&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;上学&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;paly(&lt;span style="color:#a5d6ff"&gt;&amp;#34;王者荣耀&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;say_hi(&lt;span style="color:#a5d6ff"&gt;&amp;#34;小明&amp;#34;&lt;/span&gt;, &lt;span style="color:#a5d6ff"&gt;18&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;detail_say_hi(&lt;span style="color:#a5d6ff"&gt;&amp;#34;小红&amp;#34;&lt;/span&gt;, &lt;span style="color:#a5d6ff"&gt;20&lt;/span&gt;, &lt;span style="color:#a5d6ff"&gt;&amp;#34;清华大学&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;paly()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#8b949e;font-style:italic"&gt;# run&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;(&lt;span style="color:#ff7b72;font-weight:bold"&gt;.&lt;/span&gt;venv) &lt;span style="color:#f85149"&gt;➜&lt;/span&gt; python&lt;span style="color:#ff7b72;font-weight:bold"&gt;-&lt;/span&gt;basic python baisc&lt;span style="color:#ff7b72;font-weight:bold"&gt;/&lt;/span&gt;basic&lt;span style="color:#ff7b72;font-weight:bold"&gt;-&lt;/span&gt;&lt;span style="color:#a5d6ff"&gt;01.&lt;/span&gt;py
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;玩王者荣耀
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;我是小明, 我今年18了
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;我是小红, 我今年20, 我在清华大学上学
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Traceback (most recent call last):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; File &lt;span style="color:#a5d6ff"&gt;&amp;#34;/Users/stephenzzz/code/python-basic/baisc/basic-01.py&amp;#34;&lt;/span&gt;, line &lt;span style="color:#a5d6ff"&gt;19&lt;/span&gt;, &lt;span style="color:#ff7b72;font-weight:bold"&gt;in&lt;/span&gt; &lt;span style="color:#ff7b72;font-weight:bold"&gt;&amp;lt;&lt;/span&gt;module&lt;span style="color:#ff7b72;font-weight:bold"&gt;&amp;gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; paly()
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ff7b72;font-weight:bold"&gt;~~~~^^&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f0883e;font-weight:bold"&gt;TypeError&lt;/span&gt;: paly() missing &lt;span style="color:#a5d6ff"&gt;1&lt;/span&gt; required positional argument: &lt;span style="color:#a5d6ff"&gt;&amp;#39;game&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;这里说明一下既然参数数量与位置是固定的，那么在调用函数时必须严格按照参数数量以及参数位置进行传参，如果数量不一致解释器会&lt;code&gt;raise error&lt;/code&gt;会导致程序直接退出, 如果位置不一致会导致函数运行结果不符合预期, python管这种类型的参数叫做位置参数.
+当然还有一种方式是 我们定义函数时使用位置参数定义，但是调用时我们可以按照关键字参数来调用，这点在python这里比较灵活下面举个例子&lt;/p&gt;</description></item><item><title>Everything is alright</title><link>https://StephenZ22.github.io/posts/some-think-post/</link><pubDate>Fri, 27 Feb 2026 23:52:41 +0800</pubDate><guid>https://StephenZ22.github.io/posts/some-think-post/</guid><description>&lt;p&gt;&lt;img src="https://StephenZ22.github.io/images/about.jpg" alt="Stephen Avatar"&gt;&lt;/p&gt;
 &lt;p&gt;2016年我工作的第一年. 当时是在一个工作流引擎内构建公司业务流程图，然后在流程图内编写Groovy来作业务逻辑的编码实现. 那时在页面内写程序好像没有太多的提示，写完要run一下甚至是要把流程完整跑一下才能知道有什么明显的bug.很难想象当时这个小问题我排查了大概两个小时，现在 AI编程 Vibe Coding 两个小时一个项目都写完了.时间过去了十年，编程这件事无论是学习还是实际开发都发生了难以置信的变化.&lt;/p&gt;
 &lt;p&gt;我是2015年底开始自学编程的，当时的B站已经有很多人上传编程教学视频，看了一些视频之后，我觉的视频学习有一种被别人牵着走的感觉，而且教学视频质量参差不齐，后面我就以看书，百度，论坛为主了。前几年一个很流行的段子就是StackOverflow 提问最多的问题是 如何退出Vim 当然我也为其贡献了宝贵的访问量。我在Ruby China提的第一个问题是一个环境问题 我的 rails 一直安装不成功，大概过了半天论坛大佬看了我的贴图回复需要 yum install nodejs, 在当时觉得这个世界充满爱，自己也要成为能够帮助别人解决问题的人.甚至有些时候一些依赖库版本导致的问题需要自己去github找isuues找解决方案. 现在新人学习的方法可就太友好了，ChatGpt，Gemini，DeepSeek Kimi 千问，豆包这些工具基本满足95%的提问场景，甚至如果有能力的话AI Agent 现在很火的龙虾完全可以不需要自己动手，如果想做一个小产品逻辑也有之前的只差一个程序员，变成了写好自己的提示词。&lt;/p&gt;
 &lt;p&gt;2016年9月到今天，工作时间还有半年就满十年了。这些年除了学习方式的变化，项目开发，测试，部署整体协作也和当初大不相同。刚工作的前两年Web开发领域还是单体服务为主，前后端也都在一个项目内协作像java JSP，Rails erb这些方案也算是主流，php 作为世界上最好的编程语言在当时也还占有很大一部分市场份额。当时的前端开发还是团队中一个比例不高的岗位，职责也往往是负责页面样式优化，javascript相关用的基本都是JQuery一把梭，公司用的前端框架还是AngularJS。后面到2018年我发现后前端圈子内讨论的都是 SPA，React，前后端分离这些概念。再后来Vue横空出世，国内Web开发领域前后端分离已经成了主流，单体架构也在向微服务架构转型，前端一些古老的iframe方案也渐渐开始使用微前端替换。后端领域也随着 Spring Srpingboot 这种杀手锏框架的普及，给人一种后端开发只能用java的感觉，我当时作为Ruby开发者除了躲在小众圈子时不时嘲讽一下java丑陋的语法，在职业前景上也渐渐感觉到技术栈带来的局限。测试这个岗位也从我刚入行大部分都是点点点工程师到后面严格测试用例编写与执行，客户端测试，服务端测试，自动化测试，功能与非功能测试，测试开发，混沌工程等概念以及岗位的细分逐渐的提高了人员的职业素养与技能要求。在运维领域也是随着云计算，容器，云原生技术的普及，现在很少有企业自建机房，自己维护服务器扩容网络搭建这些基础设施。服务部署也基本由原先的源码 jar war直接运行，到容器化部署，云原生，CI/CD DevOps这些技术所逐渐替代。现在AI浪潮如火如荼，对我们IT行业更是有革命性的冲击。一些业务清晰，需求简单，交互链路明朗的场景，AI写出来的代码确实又快又好。我和同事今年就一个即时通讯产品进行了一些AI Vibe Coding实践后面有机会我展开说一下。十年的时间变化的很快，技术上的革新，产业的升级改变了原有的很多习惯和想法，我的技术栈也在近几年不断的更新。&lt;/p&gt;
