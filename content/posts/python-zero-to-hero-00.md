@@ -75,7 +75,7 @@ def say_hi(name, age):
 say_hi(age=26, name="小李")
 
 # run
-.venv) ➜  python-basic python baisc/basic-01.py
+(.venv) ➜  python-basic python baisc/basic-01.py
 我是小李, 我今年26了
 ```
 
@@ -179,5 +179,156 @@ name: 小明
 kwargs: {'task': '编程', 'debug': True}
 ```
 ### 类型与操作
+对于类型而言 这小节讨论python的内置的基础数据类型和容器类型, 标准库还提供很多类似`datetime`,`file`,`decimal`封装好的数据类型,后续有机会再统一回顾.
+#### 数值类型
+python中数值类型分为三种 int 整型,float浮点型,bool 布尔型. 有一点就是 int,和float不区分或者python不关心是否有符号, 声明为`number = -100`就是有符号 声明为`pi = 3.1415`就是无符号. 这点也符合duck type 或者动态类型语言的一些特征, 简化一些步骤, 将控制权交给开发者
 
+##### int 与 float
+python 中 `int` 类型并不像c++ 或者golang那样区分 int8 int32这些不同长度. 声明为多大的值就是多大,理论上是没有上限的取决于能为变量分配多大的内存. 
+python 中没有像 golang区分 float32 或者float 或者c++ 提供一个double类型给开发者使用. 因为float本身在底层C语言实现上其实就是double. 当然既然是数值类型python也提供了 `+` `-` `*` `/` `%`这些常用的数值运算，同时python也像其他语言一样提供Floor地板除的运算 不过他无需显示调用floor 或者 math.Floor函数而是使用`//`两个除号代替.
+```python
+print(f"1+1={1+1}")
+print(f"100-50={100-50}")
+print(f"10*10={10*10}")
+print(f"10/4={10/4}")
+print(f"10//4={10//4}")
+print(f"10%3={10%3}")
+print(f"2**3={2**3}")
+print(f"-5/2={-5/2}")
+print(f"2.5*4={2.5*4}")
+print(f"-13.5/2={13.5//2}")
+
+# run
+(.venv) ➜  python-basic python basic/basic-01.py
+1+1=2
+100-50=50
+10*10=100
+10/4=2.5
+10//4=2
+10%3=1
+2**3=8
+-5/2=-2.5
+2.5*4=10.0
+-13.5/2=6.0
+
+```
+
+---
+
+##### bool
+关于bool类型python 有些特殊也可以认为是它一切皆对象的缘故, 也可以说是为了开发者友好的原因, 当然我自己开来其实是有点不理解的. 
+一个就是 `True` `False`是大写这个应该是很多人都不习惯的我写过的语言不多也不少了但是像这个Flase True我当年第一次见的时候还是很震惊. 
+还有就是 python 只提供 `and` `or` `not` 而不提供`&&` `||` `!`这里也不过多的吐槽了只是觉得 python确实初学者友好. bool类型相对简单但是在做逻辑运算时也有一些要注意的点
+```python
+# 1. and（逻辑与）：全真才真
+a = True
+b = False
+print(a and b)  # False（有一个假则假）
+print(True and True)  # True
+
+# 2. or（逻辑或）：有真就真
+print(a or b)  # True（有一个真则真）
+print(False or False)  # False
+
+# 3. not（逻辑非）：取反
+print(not a)  # False
+print(not b)  # True
+
+# 组合运算（优先级：not > and > or）
+print(not a and b)  # False and False → False
+print(a or not b)   # True or True → True
+
+# 1. and：左为假返回左值，否则返回右值
+print(0 and 10)        # 0（0 是假值）
+print("hello" and "world")  # "world"（"hello" 是真值）
+
+# 2. or：左为真返回左值，否则返回右值
+print(0 or 10)         # 10（0 是假值）
+print("hello" or "world")  # "hello"（"hello" 是真值）
+
+# 3. not：仅返回 True/False
+print(not 0)           # True
+print(not "hello")     # False
+
+# 实用场景：给变量设置默认值
+name = ""  # 空字符串（假值）
+username = name or "user123"  # name 是假值，使用默认值 "user123"
+print(username)  # "user123"
+
+# run
+(.venv) ➜  python-basic python baisc/basic-01.py                                     
+False
+True
+True
+False
+False
+True
+False
+True
+0
+world
+10
+hello
+True
+False
+user123
+```
+
+---
+
+#### 字符串类型
+字符串类型应该是程序猿最常见的一个数据类型, 但其实他也不是基础数据类型. 稍微有点经验就知道字符串其实是一个字符的数组. 开始我也打算将字符串放到容器类型中, 但是我查了python中字符串好像还真就是一个单独的class 底层也并不完全是基于字符数组实现,而是基于Unicode(utf-8)所以这里单独作为一个小节, 记录几个常用的字符串操作
+
+```python
+# 1. 切片（截取/反转）
+s = "Python"
+print(s[0:3])    # 截取前3个字符：Pyt
+print(s[::-1])   # 反转：nohtyP
+
+# 2. strip（去首尾空格/符号）
+print("  abc  ".strip())          # 去空格：abc
+print("###abc###".strip("#"))     # 去指定符号：abc
+
+# 3. split（拆分）
+print("a,b,c".split(","))        # 按逗号拆分：['a', 'b', 'c']
+
+# 4. join（拼接，比+高效）
+print("-".join(['a', 'b', 'c'])) # 拼接：a-b-c
+
+# 5. replace（替换）
+print("hello python".replace("python", "java")) # hello java
+
+# 6. in（判断包含）
+print("python" in "hello python") # True
+
+# 7. f-string（格式化）
+name = "小明"
+age = 18
+print(f"我是{name}，今年{age}岁") # 我是小明，今年18岁
+
+# 8. 大小写转换
+print("Python".lower()) # python
+print("Python".upper()) # PYTHON
+
+# 9. len（长度）
+print(len("Python 编程")) # 8（含空格，按字符数算）
+
+# run
+(.venv) ➜  python-basic python baisc/basic-01.py
+Pyt
+nohtyP
+abc
+abc
+['a', 'b', 'c']
+a-b-c
+hello java
+True
+我是小明，今年18岁
+python
+PYTHON
+9
+```
+
+#### 容器类型
+ 
 ### 判断与循环
