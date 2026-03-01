@@ -3,7 +3,7 @@
 <label class="menu-button float-right" for=menu-toggle><i class="fa-solid fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/about/>About</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://StephenZ22.github.io/posts/python-zero-to-hero-00/>Python zero to hero-I</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa-solid fa-calendar" aria-hidden=true></i>
 <time datetime=2026-02-28T17:24:51+08:00>February 28, 2026
 </time></span><span class=reading-time><i class="fa-solid fa-clock" aria-hidden=true></i>
-2-minute read</span></div></div></header><div class=post-content><p><img src=/images/posts/python-z2h/python-basic.png alt="Stephen Avatar"></p><p>编程语言用的多了难免有些混乱, 有段时间写c++ 看到指针操作符 <strong>-></strong> 总和golang chanel联系起来.
+4-minute read</span></div></div></header><div class=post-content><p><img src=/images/posts/python-z2h/python-basic.png alt="Stephen Avatar"></p><p>编程语言用的多了难免有些混乱, 有段时间写c++ 看到指针操作符 <strong>-></strong> 总和golang chanel联系起来.
 接下来打算先从python开始做一个技术回顾,记录一些我对python的一些理解.</p><h3 id=函数定义与调用>函数定义与调用
 <a class=heading-link href=#%e5%87%bd%e6%95%b0%e5%ae%9a%e4%b9%89%e4%b8%8e%e8%b0%83%e7%94%a8><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
 <span class=sr-only>Link to heading</span></a></h3><p>我认为函数是程序运行的最小单元,程序有职责不同的函数组合调用完成要执行的任务, python 中定一个函数的格式是<code>def 函数名称():</code>, 函数可以接受一个或多个参数以及不接受任何参数，不同参数在<code>()</code>中使用<code>,</code>分割. 如果函数有返回值使用 <code>return</code>关键字进行返回, 如果没有使用<code>return</code>关键字函数会return 一个None.下面根据参数的不同来对函数做一个回顾</p><hr><h4 id=简单函数>简单函数
@@ -52,7 +52,7 @@
 </span></span><span style=display:flex><span>say_hi(age<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>26</span>, name<span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>&#34;小李&#34;</span>)
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># run</span>
-</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>.</span>venv) <span style=color:#f85149>➜</span>  python<span style=color:#ff7b72;font-weight:700>-</span>basic python baisc<span style=color:#ff7b72;font-weight:700>/</span>basic<span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>01.</span>py
+</span></span><span style=display:flex><span>(<span style=color:#ff7b72;font-weight:700>.</span>venv) <span style=color:#f85149>➜</span>  python<span style=color:#ff7b72;font-weight:700>-</span>basic python baisc<span style=color:#ff7b72;font-weight:700>/</span>basic<span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>01.</span>py
 </span></span><span style=display:flex><span>我是小李, 我今年26了
 </span></span></code></pre></div><hr><h4 id=具有返回值的函数>具有返回值的函数
 <a class=heading-link href=#%e5%85%b7%e6%9c%89%e8%bf%94%e5%9b%9e%e5%80%bc%e7%9a%84%e5%87%bd%e6%95%b0><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
@@ -138,7 +138,142 @@
 </span></span><span style=display:flex><span>kwargs: {<span style=color:#a5d6ff>&#39;task&#39;</span>: <span style=color:#a5d6ff>&#39;编程&#39;</span>, <span style=color:#a5d6ff>&#39;debug&#39;</span>: <span style=color:#79c0ff>True</span>}
 </span></span></code></pre></div><h3 id=类型与操作>类型与操作
 <a class=heading-link href=#%e7%b1%bb%e5%9e%8b%e4%b8%8e%e6%93%8d%e4%bd%9c><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><h3 id=判断与循环>判断与循环
+<span class=sr-only>Link to heading</span></a></h3><p>对于类型而言 这小节讨论python的内置的基础数据类型和容器类型, 标准库还提供很多类似<code>datetime</code>,<code>file</code>,<code>decimal</code>封装好的数据类型,后续有机会再统一回顾.</p><h4 id=数值类型>数值类型
+<a class=heading-link href=#%e6%95%b0%e5%80%bc%e7%b1%bb%e5%9e%8b><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h4><p>python中数值类型分为三种 int 整型,float浮点型,bool 布尔型. 有一点就是 int,和float不区分或者python不关心是否有符号, 声明为<code>number = -100</code>就是有符号 声明为<code>pi = 3.1415</code>就是无符号. 这点也符合duck type 或者动态类型语言的一些特征, 简化一些步骤, 将控制权交给开发者</p><h5 id=int-与-float>int 与 float
+<a class=heading-link href=#int-%e4%b8%8e-float><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h5><p>python 中 <code>int</code> 类型并不像c++ 或者golang那样区分 int8 int32这些不同长度. 声明为多大的值就是多大,理论上是没有上限的取决于能为变量分配多大的内存.
+python 中没有像 golang区分 float32 或者float 或者c++ 提供一个double类型给开发者使用. 因为float本身在底层C语言实现上其实就是double. 当然既然是数值类型python也提供了 <code>+</code> <code>-</code> <code>*</code> <code>/</code> <code>%</code>这些常用的数值运算，同时python也像其他语言一样提供Floor地板除的运算 不过他无需显示调用floor 或者 math.Floor函数而是使用<code>//</code>两个除号代替.</p><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span>print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;1+1=</span><span style=color:#a5d6ff>{</span><span style=color:#a5d6ff>1</span><span style=color:#ff7b72;font-weight:700>+</span><span style=color:#a5d6ff>1</span><span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)
+</span></span><span style=display:flex><span>print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;100-50=</span><span style=color:#a5d6ff>{</span><span style=color:#a5d6ff>100</span><span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>50</span><span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)
+</span></span><span style=display:flex><span>print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;10*10=</span><span style=color:#a5d6ff>{</span><span style=color:#a5d6ff>10</span><span style=color:#ff7b72;font-weight:700>*</span><span style=color:#a5d6ff>10</span><span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)
+</span></span><span style=display:flex><span>print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;10/4=</span><span style=color:#a5d6ff>{</span><span style=color:#a5d6ff>10</span><span style=color:#ff7b72;font-weight:700>/</span><span style=color:#a5d6ff>4</span><span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)
+</span></span><span style=display:flex><span>print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;10//4=</span><span style=color:#a5d6ff>{</span><span style=color:#a5d6ff>10</span><span style=color:#ff7b72;font-weight:700>//</span><span style=color:#a5d6ff>4</span><span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)
+</span></span><span style=display:flex><span>print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;10%3=</span><span style=color:#a5d6ff>{</span><span style=color:#a5d6ff>10</span><span style=color:#ff7b72;font-weight:700>%</span><span style=color:#a5d6ff>3</span><span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)
+</span></span><span style=display:flex><span>print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;2**3=</span><span style=color:#a5d6ff>{</span><span style=color:#a5d6ff>2</span><span style=color:#ff7b72;font-weight:700>**</span><span style=color:#a5d6ff>3</span><span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)
+</span></span><span style=display:flex><span>print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;-5/2=</span><span style=color:#a5d6ff>{</span><span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>5</span><span style=color:#ff7b72;font-weight:700>/</span><span style=color:#a5d6ff>2</span><span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)
+</span></span><span style=display:flex><span>print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;2.5*4=</span><span style=color:#a5d6ff>{</span><span style=color:#a5d6ff>2.5</span><span style=color:#ff7b72;font-weight:700>*</span><span style=color:#a5d6ff>4</span><span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)
+</span></span><span style=display:flex><span>print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;-13.5/2=</span><span style=color:#a5d6ff>{</span><span style=color:#a5d6ff>13.5</span><span style=color:#ff7b72;font-weight:700>//</span><span style=color:#a5d6ff>2</span><span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># run</span>
+</span></span><span style=display:flex><span>(<span style=color:#ff7b72;font-weight:700>.</span>venv) <span style=color:#f85149>➜</span>  python<span style=color:#ff7b72;font-weight:700>-</span>basic python basic<span style=color:#ff7b72;font-weight:700>/</span>basic<span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>01.</span>py
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>1</span><span style=color:#ff7b72;font-weight:700>+</span><span style=color:#a5d6ff>1</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>2</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>100</span><span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>50</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>50</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>10</span><span style=color:#ff7b72;font-weight:700>*</span><span style=color:#a5d6ff>10</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>100</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>10</span><span style=color:#ff7b72;font-weight:700>/</span><span style=color:#a5d6ff>4</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>2.5</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>10</span><span style=color:#ff7b72;font-weight:700>//</span><span style=color:#a5d6ff>4</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>2</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>10</span><span style=color:#ff7b72;font-weight:700>%</span><span style=color:#a5d6ff>3</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>1</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>2</span><span style=color:#ff7b72;font-weight:700>**</span><span style=color:#a5d6ff>3</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>8</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>5</span><span style=color:#ff7b72;font-weight:700>/</span><span style=color:#a5d6ff>2</span><span style=color:#ff7b72;font-weight:700>=-</span><span style=color:#a5d6ff>2.5</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>2.5</span><span style=color:#ff7b72;font-weight:700>*</span><span style=color:#a5d6ff>4</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>10.0</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>13.5</span><span style=color:#ff7b72;font-weight:700>/</span><span style=color:#a5d6ff>2</span><span style=color:#ff7b72;font-weight:700>=</span><span style=color:#a5d6ff>6.0</span>
+</span></span></code></pre></div><hr><h5 id=bool>bool
+<a class=heading-link href=#bool><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h5><p>关于bool类型python 有些特殊也可以认为是它一切皆对象的缘故, 也可以说是为了开发者友好的原因, 当然我自己开来其实是有点不理解的.
+一个就是 <code>True</code> <code>False</code>是大写这个应该是很多人都不习惯的我写过的语言不多也不少了但是像这个Flase True我当年第一次见的时候还是很震惊.
+还有就是 python 只提供 <code>and</code> <code>or</code> <code>not</code> 而不提供<code>&&</code> <code>||</code> <code>!</code>这里也不过多的吐槽了只是觉得 python确实初学者友好. bool类型相对简单但是在做逻辑运算时也有一些要注意的点</p><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 1. and（逻辑与）：全真才真</span>
+</span></span><span style=display:flex><span>a <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#79c0ff>True</span>
+</span></span><span style=display:flex><span>b <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#79c0ff>False</span>
+</span></span><span style=display:flex><span>print(a <span style=color:#ff7b72;font-weight:700>and</span> b)  <span style=color:#8b949e;font-style:italic># False（有一个假则假）</span>
+</span></span><span style=display:flex><span>print(<span style=color:#79c0ff>True</span> <span style=color:#ff7b72;font-weight:700>and</span> <span style=color:#79c0ff>True</span>)  <span style=color:#8b949e;font-style:italic># True</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 2. or（逻辑或）：有真就真</span>
+</span></span><span style=display:flex><span>print(a <span style=color:#ff7b72;font-weight:700>or</span> b)  <span style=color:#8b949e;font-style:italic># True（有一个真则真）</span>
+</span></span><span style=display:flex><span>print(<span style=color:#79c0ff>False</span> <span style=color:#ff7b72;font-weight:700>or</span> <span style=color:#79c0ff>False</span>)  <span style=color:#8b949e;font-style:italic># False</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 3. not（逻辑非）：取反</span>
+</span></span><span style=display:flex><span>print(<span style=color:#ff7b72;font-weight:700>not</span> a)  <span style=color:#8b949e;font-style:italic># False</span>
+</span></span><span style=display:flex><span>print(<span style=color:#ff7b72;font-weight:700>not</span> b)  <span style=color:#8b949e;font-style:italic># True</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 组合运算（优先级：not &gt; and &gt; or）</span>
+</span></span><span style=display:flex><span>print(<span style=color:#ff7b72;font-weight:700>not</span> a <span style=color:#ff7b72;font-weight:700>and</span> b)  <span style=color:#8b949e;font-style:italic># False and False → False</span>
+</span></span><span style=display:flex><span>print(a <span style=color:#ff7b72;font-weight:700>or</span> <span style=color:#ff7b72;font-weight:700>not</span> b)   <span style=color:#8b949e;font-style:italic># True or True → True</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 1. and：左为假返回左值，否则返回右值</span>
+</span></span><span style=display:flex><span>print(<span style=color:#a5d6ff>0</span> <span style=color:#ff7b72;font-weight:700>and</span> <span style=color:#a5d6ff>10</span>)        <span style=color:#8b949e;font-style:italic># 0（0 是假值）</span>
+</span></span><span style=display:flex><span>print(<span style=color:#a5d6ff>&#34;hello&#34;</span> <span style=color:#ff7b72;font-weight:700>and</span> <span style=color:#a5d6ff>&#34;world&#34;</span>)  <span style=color:#8b949e;font-style:italic># &#34;world&#34;（&#34;hello&#34; 是真值）</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 2. or：左为真返回左值，否则返回右值</span>
+</span></span><span style=display:flex><span>print(<span style=color:#a5d6ff>0</span> <span style=color:#ff7b72;font-weight:700>or</span> <span style=color:#a5d6ff>10</span>)         <span style=color:#8b949e;font-style:italic># 10（0 是假值）</span>
+</span></span><span style=display:flex><span>print(<span style=color:#a5d6ff>&#34;hello&#34;</span> <span style=color:#ff7b72;font-weight:700>or</span> <span style=color:#a5d6ff>&#34;world&#34;</span>)  <span style=color:#8b949e;font-style:italic># &#34;hello&#34;（&#34;hello&#34; 是真值）</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 3. not：仅返回 True/False</span>
+</span></span><span style=display:flex><span>print(<span style=color:#ff7b72;font-weight:700>not</span> <span style=color:#a5d6ff>0</span>)           <span style=color:#8b949e;font-style:italic># True</span>
+</span></span><span style=display:flex><span>print(<span style=color:#ff7b72;font-weight:700>not</span> <span style=color:#a5d6ff>&#34;hello&#34;</span>)     <span style=color:#8b949e;font-style:italic># False</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 实用场景：给变量设置默认值</span>
+</span></span><span style=display:flex><span>name <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;&#34;</span>  <span style=color:#8b949e;font-style:italic># 空字符串（假值）</span>
+</span></span><span style=display:flex><span>username <span style=color:#ff7b72;font-weight:700>=</span> name <span style=color:#ff7b72;font-weight:700>or</span> <span style=color:#a5d6ff>&#34;user123&#34;</span>  <span style=color:#8b949e;font-style:italic># name 是假值，使用默认值 &#34;user123&#34;</span>
+</span></span><span style=display:flex><span>print(username)  <span style=color:#8b949e;font-style:italic># &#34;user123&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># run</span>
+</span></span><span style=display:flex><span>(<span style=color:#ff7b72;font-weight:700>.</span>venv) <span style=color:#f85149>➜</span>  python<span style=color:#ff7b72;font-weight:700>-</span>basic python baisc<span style=color:#ff7b72;font-weight:700>/</span>basic<span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>01.</span>py                                     
+</span></span><span style=display:flex><span><span style=color:#79c0ff>False</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>True</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>True</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>False</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>False</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>True</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>False</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>True</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>0</span>
+</span></span><span style=display:flex><span>world
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>10</span>
+</span></span><span style=display:flex><span>hello
+</span></span><span style=display:flex><span><span style=color:#79c0ff>True</span>
+</span></span><span style=display:flex><span><span style=color:#79c0ff>False</span>
+</span></span><span style=display:flex><span>user123
+</span></span></code></pre></div><hr><h4 id=字符串类型>字符串类型
+<a class=heading-link href=#%e5%ad%97%e7%ac%a6%e4%b8%b2%e7%b1%bb%e5%9e%8b><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h4><p>字符串类型应该是程序猿最常见的一个数据类型, 但其实他也不是基础数据类型. 稍微有点经验就知道字符串其实是一个字符的数组. 开始我也打算将字符串放到容器类型中, 但是我查了python中字符串好像还真就是一个单独的class 底层也并不完全是基于字符数组实现,而是基于Unicode(utf-8)所以这里单独作为一个小节, 记录几个常用的字符串操作</p><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 1. 切片（截取/反转）</span>
+</span></span><span style=display:flex><span>s <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;Python&#34;</span>
+</span></span><span style=display:flex><span>print(s[<span style=color:#a5d6ff>0</span>:<span style=color:#a5d6ff>3</span>])    <span style=color:#8b949e;font-style:italic># 截取前3个字符：Pyt</span>
+</span></span><span style=display:flex><span>print(s[::<span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>1</span>])   <span style=color:#8b949e;font-style:italic># 反转：nohtyP</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 2. strip（去首尾空格/符号）</span>
+</span></span><span style=display:flex><span>print(<span style=color:#a5d6ff>&#34;  abc  &#34;</span><span style=color:#ff7b72;font-weight:700>.</span>strip())          <span style=color:#8b949e;font-style:italic># 去空格：abc</span>
+</span></span><span style=display:flex><span>print(<span style=color:#a5d6ff>&#34;###abc###&#34;</span><span style=color:#ff7b72;font-weight:700>.</span>strip(<span style=color:#a5d6ff>&#34;#&#34;</span>))     <span style=color:#8b949e;font-style:italic># 去指定符号：abc</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 3. split（拆分）</span>
+</span></span><span style=display:flex><span>print(<span style=color:#a5d6ff>&#34;a,b,c&#34;</span><span style=color:#ff7b72;font-weight:700>.</span>split(<span style=color:#a5d6ff>&#34;,&#34;</span>))        <span style=color:#8b949e;font-style:italic># 按逗号拆分：[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 4. join（拼接，比+高效）</span>
+</span></span><span style=display:flex><span>print(<span style=color:#a5d6ff>&#34;-&#34;</span><span style=color:#ff7b72;font-weight:700>.</span>join([<span style=color:#a5d6ff>&#39;a&#39;</span>, <span style=color:#a5d6ff>&#39;b&#39;</span>, <span style=color:#a5d6ff>&#39;c&#39;</span>])) <span style=color:#8b949e;font-style:italic># 拼接：a-b-c</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 5. replace（替换）</span>
+</span></span><span style=display:flex><span>print(<span style=color:#a5d6ff>&#34;hello python&#34;</span><span style=color:#ff7b72;font-weight:700>.</span>replace(<span style=color:#a5d6ff>&#34;python&#34;</span>, <span style=color:#a5d6ff>&#34;java&#34;</span>)) <span style=color:#8b949e;font-style:italic># hello java</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 6. in（判断包含）</span>
+</span></span><span style=display:flex><span>print(<span style=color:#a5d6ff>&#34;python&#34;</span> <span style=color:#ff7b72;font-weight:700>in</span> <span style=color:#a5d6ff>&#34;hello python&#34;</span>) <span style=color:#8b949e;font-style:italic># True</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 7. f-string（格式化）</span>
+</span></span><span style=display:flex><span>name <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;小明&#34;</span>
+</span></span><span style=display:flex><span>age <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>18</span>
+</span></span><span style=display:flex><span>print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;我是</span><span style=color:#a5d6ff>{</span>name<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>，今年</span><span style=color:#a5d6ff>{</span>age<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>岁&#34;</span>) <span style=color:#8b949e;font-style:italic># 我是小明，今年18岁</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 8. 大小写转换</span>
+</span></span><span style=display:flex><span>print(<span style=color:#a5d6ff>&#34;Python&#34;</span><span style=color:#ff7b72;font-weight:700>.</span>lower()) <span style=color:#8b949e;font-style:italic># python</span>
+</span></span><span style=display:flex><span>print(<span style=color:#a5d6ff>&#34;Python&#34;</span><span style=color:#ff7b72;font-weight:700>.</span>upper()) <span style=color:#8b949e;font-style:italic># PYTHON</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 9. len（长度）</span>
+</span></span><span style=display:flex><span>print(len(<span style=color:#a5d6ff>&#34;Python 编程&#34;</span>)) <span style=color:#8b949e;font-style:italic># 8（含空格，按字符数算）</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># run</span>
+</span></span><span style=display:flex><span>(<span style=color:#ff7b72;font-weight:700>.</span>venv) <span style=color:#f85149>➜</span>  python<span style=color:#ff7b72;font-weight:700>-</span>basic python baisc<span style=color:#ff7b72;font-weight:700>/</span>basic<span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>01.</span>py
+</span></span><span style=display:flex><span>Pyt
+</span></span><span style=display:flex><span>nohtyP
+</span></span><span style=display:flex><span>abc
+</span></span><span style=display:flex><span>abc
+</span></span><span style=display:flex><span>[<span style=color:#a5d6ff>&#39;a&#39;</span>, <span style=color:#a5d6ff>&#39;b&#39;</span>, <span style=color:#a5d6ff>&#39;c&#39;</span>]
+</span></span><span style=display:flex><span>a<span style=color:#ff7b72;font-weight:700>-</span>b<span style=color:#ff7b72;font-weight:700>-</span>c
+</span></span><span style=display:flex><span>hello java
+</span></span><span style=display:flex><span><span style=color:#79c0ff>True</span>
+</span></span><span style=display:flex><span>我是小明<span style=color:#f85149>，</span>今年18岁
+</span></span><span style=display:flex><span>python
+</span></span><span style=display:flex><span>PYTHON
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>9</span>
+</span></span></code></pre></div><h4 id=容器类型>容器类型
+<a class=heading-link href=#%e5%ae%b9%e5%99%a8%e7%b1%bb%e5%9e%8b><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h4><h3 id=判断与循环>判断与循环
 <a class=heading-link href=#%e5%88%a4%e6%96%ad%e4%b8%8e%e5%be%aa%e7%8e%af><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
 <span class=sr-only>Link to heading</span></a></h3></div><footer><div id=disqus_thread></div><script>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//yourdiscussshortname.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}(),document.addEventListener("themeChanged",function(){document.readyState=="complete"&&DISQUS.reset({reload:!0,config:disqus_config})})</script></footer></article></section></div><footer class=footer><section class=container>©
 2019 -
