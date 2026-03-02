@@ -3,7 +3,7 @@
 <label class="menu-button float-right" for=menu-toggle><i class="fa-solid fa-bars fa-fw" aria-hidden=true></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=/about/>About</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title><a class=title-link href=https://StephenZ22.github.io/posts/python-zero-to-hero-00/>Python zero to hero-I</a></h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fa-solid fa-calendar" aria-hidden=true></i>
 <time datetime=2026-02-28T17:24:51+08:00>February 28, 2026
 </time></span><span class=reading-time><i class="fa-solid fa-clock" aria-hidden=true></i>
-4-minute read</span></div></div></header><div class=post-content><p><img src=/images/posts/python-z2h/python-basic.png alt="Stephen Avatar"></p><p>编程语言用的多了难免有些混乱, 有段时间写c++ 看到指针操作符 <strong>-></strong> 总和golang chanel联系起来.
+8-minute read</span></div></div></header><div class=post-content><p><img src=/images/posts/python-z2h/python-basic.png alt="Stephen Avatar"></p><p>编程语言用的多了难免有些混乱, 有段时间写c++ 看到指针操作符 <strong>-></strong> 总和golang chanel联系起来.
 接下来打算先从python开始做一个技术回顾,记录一些我对python的一些理解.</p><h3 id=函数定义与调用>函数定义与调用
 <a class=heading-link href=#%e5%87%bd%e6%95%b0%e5%ae%9a%e4%b9%89%e4%b8%8e%e8%b0%83%e7%94%a8><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
 <span class=sr-only>Link to heading</span></a></h3><p>我认为函数是程序运行的最小单元,程序有职责不同的函数组合调用完成要执行的任务, python 中定一个函数的格式是<code>def 函数名称():</code>, 函数可以接受一个或多个参数以及不接受任何参数，不同参数在<code>()</code>中使用<code>,</code>分割. 如果函数有返回值使用 <code>return</code>关键字进行返回, 如果没有使用<code>return</code>关键字函数会return 一个None.下面根据参数的不同来对函数做一个回顾</p><hr><h4 id=简单函数>简单函数
@@ -273,9 +273,260 @@ python 中没有像 golang区分 float32 或者float 或者c++ 提供一个doubl
 </span></span><span style=display:flex><span><span style=color:#a5d6ff>9</span>
 </span></span></code></pre></div><h4 id=容器类型>容器类型
 <a class=heading-link href=#%e5%ae%b9%e5%99%a8%e7%b1%bb%e5%9e%8b><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h4><p>WIP</p><h3 id=判断与循环>判断与循环
+<span class=sr-only>Link to heading</span></a></h4><p>python 中基础的容器类型有这么几种 <code>list</code>, <code>tuple</code>, <code>dict</code>, <code>set</code>. <code>list</code> 和 tuple在使用时我把他们当作数组和不可变数组来使用,当然 list的底层实现和传统的数组还是有很大区别 所以python单独有一个 <code>array</code>.当明确长度或者元素时python推荐使用tuple, 当然实际开发还是list使用的比较多. <code>dict</code> 的命名很形象 很多时候<code>map</code>确实像一个字典一样, 存储一对对 <code>key--value</code>对, <code>set</code>集合可以理解为之存<code>key</code> 的map,没有值形式上有点像tuple,关键在于<code>set</code>中元素不可重复. 如果有其他语言的基础开始很容易被python异与多数编程语言约定的命名高的有点头大, 不过写多了也就习惯了,尤其是用的语言变多之后本身就是在不同语言业务上下文来回切换. 下面列举一些容器类型的常用操作</p><h5 id=list-和-tuple>list 和 tuple
+<a class=heading-link href=#list-%e5%92%8c-tuple><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h5><p><strong>list</strong></p><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span>games <span style=color:#ff7b72;font-weight:700>=</span> [<span style=color:#a5d6ff>&#34;守望先锋&#34;</span>, <span style=color:#a5d6ff>&#34;英雄联盟&#34;</span>, <span style=color:#a5d6ff>&#34;王者荣耀&#34;</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 尾部添加</span>
+</span></span><span style=display:flex><span>games<span style=color:#ff7b72;font-weight:700>.</span>append(<span style=color:#a5d6ff>&#34;绝地求生&#34;</span>)
+</span></span><span style=display:flex><span>print(games)  <span style=color:#8b949e;font-style:italic># [&#39;守望先锋&#39;, &#39;英雄联盟&#39;, &#39;王者荣耀&#39;, &#39;绝地求生&#39;]</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 尾部移除</span>
+</span></span><span style=display:flex><span>games<span style=color:#ff7b72;font-weight:700>.</span>pop()
+</span></span><span style=display:flex><span>print(games)  <span style=color:#8b949e;font-style:italic># [&#39;守望先锋&#39;, &#39;英雄联盟&#39;, &#39;王者荣耀&#39;]</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 指定位置添加</span>
+</span></span><span style=display:flex><span>games<span style=color:#ff7b72;font-weight:700>.</span>insert(<span style=color:#a5d6ff>1</span>, <span style=color:#a5d6ff>&#34;DOTA2&#34;</span>)
+</span></span><span style=display:flex><span>print(games)  <span style=color:#8b949e;font-style:italic># [&#39;守望先锋&#39;, &#39;DOTA2&#39;, &#39;英雄联盟&#39;, &#39;王者荣耀&#39;]</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 指定位置移除</span>
+</span></span><span style=display:flex><span>games<span style=color:#ff7b72;font-weight:700>.</span>pop(<span style=color:#a5d6ff>1</span>)
+</span></span><span style=display:flex><span>print(games)  <span style=color:#8b949e;font-style:italic># [&#39;守望先锋&#39;, &#39;英雄联盟&#39;, &#39;王者荣耀&#39;]</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic>#获取list元素</span>
+</span></span><span style=display:flex><span>print(games[<span style=color:#a5d6ff>0</span>])  <span style=color:#8b949e;font-style:italic># &#39;守望先锋&#39;</span>
+</span></span><span style=display:flex><span>print(games[<span style=color:#a5d6ff>1</span>])  <span style=color:#8b949e;font-style:italic># &#39;英雄联盟&#39;</span>
+</span></span><span style=display:flex><span>print(games[<span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>1</span>])  <span style=color:#8b949e;font-style:italic># &#39;王者荣耀&#39;</span>
+</span></span><span style=display:flex><span>print(games[<span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>2</span>])  <span style=color:#8b949e;font-style:italic># &#39;英雄联盟&#39;ss</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 切片获取子列表</span>
+</span></span><span style=display:flex><span>print(games[<span style=color:#a5d6ff>0</span>:<span style=color:#a5d6ff>2</span>])  <span style=color:#8b949e;font-style:italic># [&#39;守望先锋&#39;, &#39;英雄联盟&#39;]</span>
+</span></span><span style=display:flex><span>print(games[::<span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>1</span>])  <span style=color:#8b949e;font-style:italic># [&#39;王者荣耀&#39;, &#39;英雄联盟&#39;, &#39;守望先锋&#39;]</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 修改指定元素</span>
+</span></span><span style=display:flex><span>games[<span style=color:#a5d6ff>0</span>] <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;黑神话&#34;</span>
+</span></span><span style=display:flex><span>print(games)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># run</span>
+</span></span><span style=display:flex><span>(<span style=color:#ff7b72;font-weight:700>.</span>venv) <span style=color:#f85149>➜</span>  python<span style=color:#ff7b72;font-weight:700>-</span>basic git:(main) <span style=color:#f85149>✗</span> python baisc<span style=color:#ff7b72;font-weight:700>/</span>basic<span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>01.</span>py    
+</span></span><span style=display:flex><span>[<span style=color:#a5d6ff>&#39;守望先锋&#39;</span>, <span style=color:#a5d6ff>&#39;英雄联盟&#39;</span>, <span style=color:#a5d6ff>&#39;王者荣耀&#39;</span>, <span style=color:#a5d6ff>&#39;绝地求生&#39;</span>]
+</span></span><span style=display:flex><span>[<span style=color:#a5d6ff>&#39;守望先锋&#39;</span>, <span style=color:#a5d6ff>&#39;英雄联盟&#39;</span>, <span style=color:#a5d6ff>&#39;王者荣耀&#39;</span>]
+</span></span><span style=display:flex><span>[<span style=color:#a5d6ff>&#39;守望先锋&#39;</span>, <span style=color:#a5d6ff>&#39;DOTA2&#39;</span>, <span style=color:#a5d6ff>&#39;英雄联盟&#39;</span>, <span style=color:#a5d6ff>&#39;王者荣耀&#39;</span>]
+</span></span><span style=display:flex><span>[<span style=color:#a5d6ff>&#39;守望先锋&#39;</span>, <span style=color:#a5d6ff>&#39;英雄联盟&#39;</span>, <span style=color:#a5d6ff>&#39;王者荣耀&#39;</span>]
+</span></span><span style=display:flex><span>守望先锋
+</span></span><span style=display:flex><span>英雄联盟
+</span></span><span style=display:flex><span>王者荣耀
+</span></span><span style=display:flex><span>英雄联盟
+</span></span><span style=display:flex><span>[<span style=color:#a5d6ff>&#39;守望先锋&#39;</span>, <span style=color:#a5d6ff>&#39;英雄联盟&#39;</span>]
+</span></span><span style=display:flex><span>[<span style=color:#a5d6ff>&#39;王者荣耀&#39;</span>, <span style=color:#a5d6ff>&#39;英雄联盟&#39;</span>, <span style=color:#a5d6ff>&#39;守望先锋&#39;</span>]
+</span></span><span style=display:flex><span>[<span style=color:#a5d6ff>&#39;黑神话&#39;</span>, <span style=color:#a5d6ff>&#39;英雄联盟&#39;</span>, <span style=color:#a5d6ff>&#39;王者荣耀&#39;</span>]
+</span></span></code></pre></div><p><strong>tuple</strong>
+<code>tuple</code>可以理解为只读的list, list支持的插入产删除修改在tuple下都会报错.</p><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span>sports <span style=color:#ff7b72;font-weight:700>=</span> (<span style=color:#a5d6ff>&#34;足球&#34;</span>, <span style=color:#a5d6ff>&#34;篮球&#34;</span>, <span style=color:#a5d6ff>&#34;乒乓球&#34;</span>)
+</span></span><span style=display:flex><span>print(sports)  <span style=color:#8b949e;font-style:italic># (&#39;足球&#39;, &#39;篮球&#39;, &#39;乒乓球&#39;)</span>
+</span></span><span style=display:flex><span>print(sports[<span style=color:#a5d6ff>0</span>])     <span style=color:#8b949e;font-style:italic># &#39;足球&#39;</span>
+</span></span><span style=display:flex><span>print(sports[<span style=color:#a5d6ff>1</span>])     <span style=color:#8b949e;font-style:italic># &#39;篮球&#39;</span>
+</span></span><span style=display:flex><span>print(sports[<span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>1</span>])    <span style=color:#8b949e;font-style:italic># &#39;乒乓球&#39;</span>
+</span></span><span style=display:flex><span>print(sports[<span style=color:#a5d6ff>0</span>:<span style=color:#a5d6ff>2</span>])   <span style=color:#8b949e;font-style:italic># (&#39;足球&#39;, &#39;篮球&#39;)</span>
+</span></span><span style=display:flex><span>print(sports[::<span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>1</span>])  <span style=color:#8b949e;font-style:italic># (&#39;乒乓球&#39;, &#39;篮球&#39;, &#39;足球&#39;)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sports[<span style=color:#a5d6ff>0</span>] <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;羽毛球&#34;</span>  <span style=color:#8b949e;font-style:italic># TypeError: &#39;tuple&#39; object does not support item assignment</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># sports.append(&#34;羽毛球&#34;)  # AttributeError: &#39;tuple&#39; object has no attribute &#39;append&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># run</span>
+</span></span><span style=display:flex><span>(<span style=color:#ff7b72;font-weight:700>.</span>venv) <span style=color:#f85149>➜</span>  python<span style=color:#ff7b72;font-weight:700>-</span>basic git:(main) <span style=color:#f85149>✗</span> python baisc<span style=color:#ff7b72;font-weight:700>/</span>basic<span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>01.</span>py
+</span></span><span style=display:flex><span>(<span style=color:#a5d6ff>&#39;足球&#39;</span>, <span style=color:#a5d6ff>&#39;篮球&#39;</span>, <span style=color:#a5d6ff>&#39;乒乓球&#39;</span>)
+</span></span><span style=display:flex><span>足球
+</span></span><span style=display:flex><span>篮球
+</span></span><span style=display:flex><span>乒乓球
+</span></span><span style=display:flex><span>(<span style=color:#a5d6ff>&#39;足球&#39;</span>, <span style=color:#a5d6ff>&#39;篮球&#39;</span>)
+</span></span><span style=display:flex><span>(<span style=color:#a5d6ff>&#39;乒乓球&#39;</span>, <span style=color:#a5d6ff>&#39;篮球&#39;</span>, <span style=color:#a5d6ff>&#39;足球&#39;</span>)
+</span></span><span style=display:flex><span>Traceback (most recent call last):
+</span></span><span style=display:flex><span>  File <span style=color:#a5d6ff>&#34;/Users/stephenzzz/code/python-basic/baisc/basic-01.py&#34;</span>, line <span style=color:#a5d6ff>183</span>, <span style=color:#ff7b72;font-weight:700>in</span> <span style=color:#ff7b72;font-weight:700>&lt;</span>module<span style=color:#ff7b72;font-weight:700>&gt;</span>
+</span></span><span style=display:flex><span>    sports[<span style=color:#a5d6ff>0</span>] <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;羽毛球&#34;</span>  <span style=color:#8b949e;font-style:italic># TypeError: &#39;tuple&#39; object does not support item assignment</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72;font-weight:700>~~~~~~^^^</span>
+</span></span><span style=display:flex><span><span style=color:#f0883e;font-weight:700>TypeError</span>: <span style=color:#a5d6ff>&#39;tuple&#39;</span> object does <span style=color:#ff7b72;font-weight:700>not</span> support item assignment
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>sports <span style=color:#ff7b72;font-weight:700>=</span> (<span style=color:#a5d6ff>&#34;足球&#34;</span>, <span style=color:#a5d6ff>&#34;篮球&#34;</span>, <span style=color:#a5d6ff>&#34;乒乓球&#34;</span>)
+</span></span><span style=display:flex><span>print(sports)  <span style=color:#8b949e;font-style:italic># (&#39;足球&#39;, &#39;篮球&#39;, &#39;乒乓球&#39;)</span>
+</span></span><span style=display:flex><span>print(sports[<span style=color:#a5d6ff>0</span>])     <span style=color:#8b949e;font-style:italic># &#39;足球&#39;</span>
+</span></span><span style=display:flex><span>print(sports[<span style=color:#a5d6ff>1</span>])     <span style=color:#8b949e;font-style:italic># &#39;篮球&#39;</span>
+</span></span><span style=display:flex><span>print(sports[<span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>1</span>])    <span style=color:#8b949e;font-style:italic># &#39;乒乓球&#39;</span>
+</span></span><span style=display:flex><span>print(sports[<span style=color:#a5d6ff>0</span>:<span style=color:#a5d6ff>2</span>])   <span style=color:#8b949e;font-style:italic># (&#39;足球&#39;, &#39;篮球&#39;)</span>
+</span></span><span style=display:flex><span>print(sports[::<span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>1</span>])  <span style=color:#8b949e;font-style:italic># (&#39;乒乓球&#39;, &#39;篮球&#39;, &#39;足球&#39;)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># sports[0] = &#34;羽毛球&#34;  # TypeError: &#39;tuple&#39; object does not support item assignment</span>
+</span></span><span style=display:flex><span>sports<span style=color:#ff7b72;font-weight:700>.</span>append(<span style=color:#a5d6ff>&#34;羽毛球&#34;</span>)  <span style=color:#8b949e;font-style:italic># AttributeError: &#39;tuple&#39; object has no attribute &#39;append&#39;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># run</span>
+</span></span><span style=display:flex><span>(<span style=color:#ff7b72;font-weight:700>.</span>venv) <span style=color:#f85149>➜</span>  python<span style=color:#ff7b72;font-weight:700>-</span>basic git:(main) <span style=color:#f85149>✗</span> python baisc<span style=color:#ff7b72;font-weight:700>/</span>basic<span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>01.</span>pys
+</span></span><span style=display:flex><span>(<span style=color:#a5d6ff>&#39;足球&#39;</span>, <span style=color:#a5d6ff>&#39;篮球&#39;</span>, <span style=color:#a5d6ff>&#39;乒乓球&#39;</span>)
+</span></span><span style=display:flex><span>足球
+</span></span><span style=display:flex><span>篮球
+</span></span><span style=display:flex><span>乒乓球
+</span></span><span style=display:flex><span>(<span style=color:#a5d6ff>&#39;足球&#39;</span>, <span style=color:#a5d6ff>&#39;篮球&#39;</span>)
+</span></span><span style=display:flex><span>(<span style=color:#a5d6ff>&#39;乒乓球&#39;</span>, <span style=color:#a5d6ff>&#39;篮球&#39;</span>, <span style=color:#a5d6ff>&#39;足球&#39;</span>)
+</span></span><span style=display:flex><span>Traceback (most recent call last):
+</span></span><span style=display:flex><span>  File <span style=color:#a5d6ff>&#34;/Users/stephenzzz/code/python-basic/baisc/basic-01.py&#34;</span>, line <span style=color:#a5d6ff>184</span>, <span style=color:#ff7b72;font-weight:700>in</span> <span style=color:#ff7b72;font-weight:700>&lt;</span>module<span style=color:#ff7b72;font-weight:700>&gt;</span>
+</span></span><span style=display:flex><span>    sports<span style=color:#ff7b72;font-weight:700>.</span>append(<span style=color:#a5d6ff>&#34;羽毛球&#34;</span>)  <span style=color:#8b949e;font-style:italic># AttributeError: &#39;tuple&#39; object has no attribute &#39;append&#39;</span>
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72;font-weight:700>^^^^^^^^^^^^^</span>
+</span></span><span style=display:flex><span><span style=color:#f0883e;font-weight:700>AttributeError</span>: <span style=color:#a5d6ff>&#39;tuple&#39;</span> object has no attribute <span style=color:#a5d6ff>&#39;append&#39;</span>
+</span></span></code></pre></div><h5 id=dict>dict
+<a class=heading-link href=#dict><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h5><p>字典和其他语言的map使用方法类似, 这里要注意的 python 3.7 之后dict记录了插入顺序,所以默认是有序的.</p><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 插入新的键值对</span>
+</span></span><span style=display:flex><span>username_map[<span style=color:#a5d6ff>&#34;小王&#34;</span>] <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;xiaowang000&#34;</span>
+</span></span><span style=display:flex><span>print(username_map)
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 移除键值对</span>
+</span></span><span style=display:flex><span>username_map<span style=color:#ff7b72;font-weight:700>.</span>pop(<span style=color:#a5d6ff>&#34;小李&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 获取键对应的值，如果键不存在则返回默认值（第二个参数）</span>
+</span></span><span style=display:flex><span>print(username_map<span style=color:#ff7b72;font-weight:700>.</span>get(<span style=color:#a5d6ff>&#34;小李&#34;</span>, <span style=color:#a5d6ff>&#34;默认值&#34;</span>))
+</span></span><span style=display:flex><span>print(username_map)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 获取键对应的值，如果键不存在则返回 None</span>
+</span></span><span style=display:flex><span>print(username_map[<span style=color:#a5d6ff>&#34;小明&#34;</span>])  <span style=color:#8b949e;font-style:italic># xiaoming123</span>
+</span></span><span style=display:flex><span>print(username_map<span style=color:#ff7b72;font-weight:700>.</span>get(<span style=color:#a5d6ff>&#34;小李&#34;</span>))  <span style=color:#8b949e;font-style:italic># None</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 修改已有的键值对</span>
+</span></span><span style=display:flex><span>username_map[<span style=color:#a5d6ff>&#34;小红&#34;</span>] <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;xiaohong999&#34;</span>  
+</span></span><span style=display:flex><span>print(username_map)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># run</span>
+</span></span><span style=display:flex><span>(<span style=color:#ff7b72;font-weight:700>.</span>venv) <span style=color:#f85149>➜</span>  python<span style=color:#ff7b72;font-weight:700>-</span>basic git:(main) <span style=color:#f85149>✗</span> python baisc<span style=color:#ff7b72;font-weight:700>/</span>basic<span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>01.</span>py
+</span></span><span style=display:flex><span>{<span style=color:#a5d6ff>&#39;小明&#39;</span>: <span style=color:#a5d6ff>&#39;xiaoming123&#39;</span>, <span style=color:#a5d6ff>&#39;小红&#39;</span>: <span style=color:#a5d6ff>&#39;xiaohong456&#39;</span>, <span style=color:#a5d6ff>&#39;小李&#39;</span>: <span style=color:#a5d6ff>&#39;xiaoli789&#39;</span>, <span style=color:#a5d6ff>&#39;小王&#39;</span>: <span style=color:#a5d6ff>&#39;xiaowang000&#39;</span>}
+</span></span><span style=display:flex><span>默认值
+</span></span><span style=display:flex><span>{<span style=color:#a5d6ff>&#39;小明&#39;</span>: <span style=color:#a5d6ff>&#39;xiaoming123&#39;</span>, <span style=color:#a5d6ff>&#39;小红&#39;</span>: <span style=color:#a5d6ff>&#39;xiaohong456&#39;</span>, <span style=color:#a5d6ff>&#39;小王&#39;</span>: <span style=color:#a5d6ff>&#39;xiaowang000&#39;</span>}
+</span></span><span style=display:flex><span>xiaoming123
+</span></span><span style=display:flex><span><span style=color:#79c0ff>None</span>
+</span></span><span style=display:flex><span>{<span style=color:#a5d6ff>&#39;小明&#39;</span>: <span style=color:#a5d6ff>&#39;xiaoming123&#39;</span>, <span style=color:#a5d6ff>&#39;小红&#39;</span>: <span style=color:#a5d6ff>&#39;xiaohong999&#39;</span>, <span style=color:#a5d6ff>&#39;小王&#39;</span>: <span style=color:#a5d6ff>&#39;xiaowang000&#39;</span>}
+</span></span><span style=display:flex><span>小明: xiaoming123
+</span></span><span style=display:flex><span>小红: xiaohong999
+</span></span><span style=display:flex><span>小王: xiaowang000
+</span></span></code></pre></div><h5 id=set>set
+<a class=heading-link href=#set><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h5><p>set 是一个无序且不重复的元素集合。你可以把它理解为只有 Key 没有 Value 的 dict。它的主要用途是去重和快速成员判断。</p><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 1. 定义集合 (使用 {} 或者 set())</span>
+</span></span><span style=display:flex><span>tags <span style=color:#ff7b72;font-weight:700>=</span> {<span style=color:#a5d6ff>&#34;python&#34;</span>, <span style=color:#a5d6ff>&#34;coding&#34;</span>, <span style=color:#a5d6ff>&#34;hero&#34;</span>, <span style=color:#a5d6ff>&#34;python&#34;</span>} <span style=color:#8b949e;font-style:italic># 重复的 &#39;python&#39; 会被忽略</span>
+</span></span><span style=display:flex><span>print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;集合类型: </span><span style=color:#a5d6ff>{</span>type(tags)<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>, 内容: </span><span style=color:#a5d6ff>{</span>tags<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 2. 添加元素</span>
+</span></span><span style=display:flex><span>tags<span style=color:#ff7b72;font-weight:700>.</span>add(<span style=color:#a5d6ff>&#34;blog&#34;</span>)
+</span></span><span style=display:flex><span>print(tags)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 3. 删除元素</span>
+</span></span><span style=display:flex><span>tags<span style=color:#ff7b72;font-weight:700>.</span>remove(<span style=color:#a5d6ff>&#34;coding&#34;</span>) <span style=color:#8b949e;font-style:italic># 不存在会报错</span>
+</span></span><span style=display:flex><span>tags<span style=color:#ff7b72;font-weight:700>.</span>discard(<span style=color:#a5d6ff>&#34;not_exist&#34;</span>) <span style=color:#8b949e;font-style:italic># 不存在不会报错</span>
+</span></span><span style=display:flex><span>print(tags)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 4. 成员判断 (极快)</span>
+</span></span><span style=display:flex><span>print(<span style=color:#a5d6ff>&#34;python&#34;</span> <span style=color:#ff7b72;font-weight:700>in</span> tags) <span style=color:#8b949e;font-style:italic># True</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 5. 集合运算</span>
+</span></span><span style=display:flex><span>a <span style=color:#ff7b72;font-weight:700>=</span> {<span style=color:#a5d6ff>1</span>, <span style=color:#a5d6ff>2</span>, <span style=color:#a5d6ff>3</span>, <span style=color:#a5d6ff>4</span>}
+</span></span><span style=display:flex><span>b <span style=color:#ff7b72;font-weight:700>=</span> {<span style=color:#a5d6ff>3</span>, <span style=color:#a5d6ff>4</span>, <span style=color:#a5d6ff>5</span>, <span style=color:#a5d6ff>6</span>}
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;并集: </span><span style=color:#a5d6ff>{</span>a <span style=color:#ff7b72;font-weight:700>|</span> b<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>) <span style=color:#8b949e;font-style:italic># {1, 2, 3, 4, 5, 6}</span>
+</span></span><span style=display:flex><span>print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;交集: </span><span style=color:#a5d6ff>{</span>a <span style=color:#ff7b72;font-weight:700>&amp;</span> b<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>) <span style=color:#8b949e;font-style:italic># {3, 4}</span>
+</span></span><span style=display:flex><span>print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;差集: </span><span style=color:#a5d6ff>{</span>a <span style=color:#ff7b72;font-weight:700>-</span> b<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>) <span style=color:#8b949e;font-style:italic># {1, 2} (在 a 中但不在 b 中)</span>
+</span></span><span style=display:flex><span>print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;差集: </span><span style=color:#a5d6ff>{</span>b <span style=color:#ff7b72;font-weight:700>-</span> a<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>) <span style=color:#8b949e;font-style:italic># {5, 6} (在 b 中但不在 a 中)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># run</span>
+</span></span><span style=display:flex><span>(<span style=color:#ff7b72;font-weight:700>.</span>venv) <span style=color:#f85149>➜</span>  python<span style=color:#ff7b72;font-weight:700>-</span>basic git:(main) <span style=color:#f85149>✗</span> python baisc<span style=color:#ff7b72;font-weight:700>/</span>basic<span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>01.</span>py
+</span></span><span style=display:flex><span>集合类型: <span style=color:#ff7b72;font-weight:700>&lt;</span><span style=color:#ff7b72>class</span> <span style=color:#f85149>&#39;</span><span style=color:#f0883e;font-weight:700>set</span><span style=color:#a5d6ff>&#39;&gt;, 内容: {&#39;</span>python<span style=color:#a5d6ff>&#39;, &#39;</span>hero<span style=color:#a5d6ff>&#39;, &#39;</span>coding<span style=color:#a5d6ff>&#39;}</span>
+</span></span><span style=display:flex><span>{<span style=color:#a5d6ff>&#39;python&#39;</span>, <span style=color:#a5d6ff>&#39;hero&#39;</span>, <span style=color:#a5d6ff>&#39;coding&#39;</span>, <span style=color:#a5d6ff>&#39;blog&#39;</span>}
+</span></span><span style=display:flex><span>{<span style=color:#a5d6ff>&#39;python&#39;</span>, <span style=color:#a5d6ff>&#39;hero&#39;</span>, <span style=color:#a5d6ff>&#39;blog&#39;</span>}
+</span></span><span style=display:flex><span><span style=color:#79c0ff>True</span>
+</span></span><span style=display:flex><span>并集: {<span style=color:#a5d6ff>1</span>, <span style=color:#a5d6ff>2</span>, <span style=color:#a5d6ff>3</span>, <span style=color:#a5d6ff>4</span>, <span style=color:#a5d6ff>5</span>, <span style=color:#a5d6ff>6</span>}
+</span></span><span style=display:flex><span>交集: {<span style=color:#a5d6ff>3</span>, <span style=color:#a5d6ff>4</span>}
+</span></span><span style=display:flex><span>差集: {<span style=color:#a5d6ff>1</span>, <span style=color:#a5d6ff>2</span>}
+</span></span><span style=display:flex><span>差集: {<span style=color:#a5d6ff>5</span>, <span style=color:#a5d6ff>6</span>}
+</span></span></code></pre></div><hr><h3 id=判断与循环>判断与循环
 <a class=heading-link href=#%e5%88%a4%e6%96%ad%e4%b8%8e%e5%be%aa%e7%8e%af><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
-<span class=sr-only>Link to heading</span></a></h3><p>WIP</p></div><footer><div id=disqus_thread></div><script>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//yourdiscussshortname.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}(),document.addEventListener("themeChanged",function(){document.readyState=="complete"&&DISQUS.reset({reload:!0,config:disqus_config})})</script></footer></article></section></div><footer class=footer><section class=container>©
+<span class=sr-only>Link to heading</span></a></h3><p>关于判断语句pyton之前没有提供<code>switch case</code>语句来简化<code>if-elif-else</code>的, 在3.10新增了<code>mathch-case</code>,使用方法以及功能和switch case类似, 还有就是python也没有 <code>cond ? value1 : value2</code>这样的三目运算符, 与之对应的是使用单行if-else<code>value1 if cond else value2</code>取代
+python 提供两种循环方式<code>for</code> <code>while</code>这两个和其他语言使用方法类似</p><h4 id=判断>判断
+<a class=heading-link href=#%e5%88%a4%e6%96%ad><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h4><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#8b949e;font-style:italic># --- if-elif-else 传统分支 ---</span>
+</span></span><span style=display:flex><span>score <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>85</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>if</span> score <span style=color:#ff7b72;font-weight:700>&gt;=</span> <span style=color:#a5d6ff>90</span>:
+</span></span><span style=display:flex><span>    result <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;优秀&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>elif</span> score <span style=color:#ff7b72;font-weight:700>&gt;=</span> <span style=color:#a5d6ff>60</span>:
+</span></span><span style=display:flex><span>    result <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;及格&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>else</span>:
+</span></span><span style=display:flex><span>    result <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;不及格&#34;</span>
+</span></span><span style=display:flex><span>print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;得分: </span><span style=color:#a5d6ff>{</span>score<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>, 结果: </span><span style=color:#a5d6ff>{</span>result<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># --- 三元运算符 (单行 if-else) ---</span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 语法: [真值] if [条件] else [假值]</span>
+</span></span><span style=display:flex><span>status <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;成年&#34;</span> <span style=color:#ff7b72>if</span> score <span style=color:#ff7b72;font-weight:700>&gt;=</span> <span style=color:#a5d6ff>18</span> <span style=color:#ff7b72>else</span> <span style=color:#a5d6ff>&#34;未成年&#34;</span>
+</span></span><span style=display:flex><span>print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;状态: </span><span style=color:#a5d6ff>{</span>status<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># --- match-case (Python 3.10+ 结构化模式匹配) ---</span>
+</span></span><span style=display:flex><span>command <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>&#34;start&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>match</span> command:
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>case</span> <span style=color:#a5d6ff>&#34;start&#34;</span>:
+</span></span><span style=display:flex><span>        print(<span style=color:#a5d6ff>&#34;游戏开始&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>case</span> <span style=color:#a5d6ff>&#34;stop&#34;</span>:
+</span></span><span style=display:flex><span>        print(<span style=color:#a5d6ff>&#34;游戏暂停&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>case</span> <span style=color:#a5d6ff>&#34;exit&#34;</span>:
+</span></span><span style=display:flex><span>        print(<span style=color:#a5d6ff>&#34;退出游戏&#34;</span>)
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>case</span> _: <span style=color:#8b949e;font-style:italic># 类似于 switch 的 default</span>
+</span></span><span style=display:flex><span>        print(<span style=color:#a5d6ff>&#34;未知命令&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># run</span>
+</span></span><span style=display:flex><span>(<span style=color:#ff7b72;font-weight:700>.</span>venv) <span style=color:#f85149>➜</span>  python<span style=color:#ff7b72;font-weight:700>-</span>basic python baisc<span style=color:#ff7b72;font-weight:700>/</span>basic<span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>01.</span>py
+</span></span><span style=display:flex><span>得分: <span style=color:#a5d6ff>85</span>, 结果: 及格
+</span></span><span style=display:flex><span>状态: 成年
+</span></span><span style=display:flex><span>游戏开始
+</span></span></code></pre></div><h4 id=循环>循环
+<a class=heading-link href=#%e5%be%aa%e7%8e%af><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h4><div class=highlight><pre tabindex=0 style=color:#e6edf3;background-color:#0d1117;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#8b949e;font-style:italic># --- for 循环 (遍历序列) ---</span>
+</span></span><span style=display:flex><span>games <span style=color:#ff7b72;font-weight:700>=</span> [<span style=color:#a5d6ff>&#34;守望先锋&#34;</span>, <span style=color:#a5d6ff>&#34;英雄联盟&#34;</span>, <span style=color:#a5d6ff>&#34;王者荣耀&#34;</span>]
+</span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> game <span style=color:#ff7b72;font-weight:700>in</span> games:
+</span></span><span style=display:flex><span>    print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;正在玩: </span><span style=color:#a5d6ff>{</span>game<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># 遍历 range 数字序列</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> i <span style=color:#ff7b72;font-weight:700>in</span> range(<span style=color:#a5d6ff>1</span>, <span style=color:#a5d6ff>4</span>):
+</span></span><span style=display:flex><span>    print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;倒计时: </span><span style=color:#a5d6ff>{</span>i<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># --- while 循环 (基于条件) ---</span>
+</span></span><span style=display:flex><span>count <span style=color:#ff7b72;font-weight:700>=</span> <span style=color:#a5d6ff>3</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72>while</span> count <span style=color:#ff7b72;font-weight:700>&gt;</span> <span style=color:#a5d6ff>0</span>:
+</span></span><span style=display:flex><span>    print(<span style=color:#79c0ff>f</span><span style=color:#a5d6ff>&#34;剩余生命: </span><span style=color:#a5d6ff>{</span>count<span style=color:#a5d6ff>}</span><span style=color:#a5d6ff>&#34;</span>)
+</span></span><span style=display:flex><span>    count <span style=color:#ff7b72;font-weight:700>-=</span> <span style=color:#a5d6ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># --- 循环控制语句: break &amp; continue ---</span>
+</span></span><span style=display:flex><span>print(<span style=color:#a5d6ff>&#34;--- break 示例 ---&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> num <span style=color:#ff7b72;font-weight:700>in</span> range(<span style=color:#a5d6ff>10</span>):
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> num <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#a5d6ff>5</span>:
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>break</span> <span style=color:#8b949e;font-style:italic># 满足条件跳出整个循环</span>
+</span></span><span style=display:flex><span>    print(num)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>print(<span style=color:#a5d6ff>&#34;--- continue 示例 ---&#34;</span>)
+</span></span><span style=display:flex><span><span style=color:#ff7b72>for</span> num <span style=color:#ff7b72;font-weight:700>in</span> range(<span style=color:#a5d6ff>5</span>):
+</span></span><span style=display:flex><span>    <span style=color:#ff7b72>if</span> num <span style=color:#ff7b72;font-weight:700>==</span> <span style=color:#a5d6ff>2</span>:
+</span></span><span style=display:flex><span>        <span style=color:#ff7b72>continue</span> <span style=color:#8b949e;font-style:italic># 满足条件跳过当前本次循环，进入下一次</span>
+</span></span><span style=display:flex><span>    print(num)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#8b949e;font-style:italic># run</span>
+</span></span><span style=display:flex><span>(<span style=color:#ff7b72;font-weight:700>.</span>venv) <span style=color:#f85149>➜</span>  python<span style=color:#ff7b72;font-weight:700>-</span>basic python baisc<span style=color:#ff7b72;font-weight:700>/</span>basic<span style=color:#ff7b72;font-weight:700>-</span><span style=color:#a5d6ff>01.</span>py
+</span></span><span style=display:flex><span>正在玩: 守望先锋
+</span></span><span style=display:flex><span>正在玩: 英雄联盟
+</span></span><span style=display:flex><span>正在玩: 王者荣耀
+</span></span><span style=display:flex><span>倒计时: <span style=color:#a5d6ff>1</span>
+</span></span><span style=display:flex><span>倒计时: <span style=color:#a5d6ff>2</span>
+</span></span><span style=display:flex><span>倒计时: <span style=color:#a5d6ff>3</span>
+</span></span><span style=display:flex><span>剩余生命: <span style=color:#a5d6ff>3</span>
+</span></span><span style=display:flex><span>剩余生命: <span style=color:#a5d6ff>2</span>
+</span></span><span style=display:flex><span>剩余生命: <span style=color:#a5d6ff>1</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>---</span> <span style=color:#ff7b72>break</span> 示例 <span style=color:#ff7b72;font-weight:700>---</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>0</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>1</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>2</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>3</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>4</span>
+</span></span><span style=display:flex><span><span style=color:#ff7b72;font-weight:700>---</span> <span style=color:#ff7b72>continue</span> 示例 <span style=color:#ff7b72;font-weight:700>---</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>0</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>1</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>3</span>
+</span></span><span style=display:flex><span><span style=color:#a5d6ff>4</span>
+</span></span></code></pre></div><hr><h3 id=总结>总结
+<a class=heading-link href=#%e6%80%bb%e7%bb%93><i class="fa-solid fa-link" aria-hidden=true title="Link to heading"></i>
+<span class=sr-only>Link to heading</span></a></h3><p>我理解如果掌握不止一门编程语言,在学习使用其他语言的时候掌握这些内容基本可以满足开发要求了,当然工程化,多文件moudle，class, 相关生态后续章节进行回顾与总结.</p></div><footer><div id=disqus_thread></div><script>window.disqus_config=function(){},function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById("disqus_thread").innerHTML="Disqus comments not available by default when the website is previewed locally.";return}var t=document,e=t.createElement("script");e.async=!0,e.src="//yourdiscussshortname.disqus.com/embed.js",e.setAttribute("data-timestamp",+new Date),(t.head||t.body).appendChild(e)}(),document.addEventListener("themeChanged",function(){document.readyState=="complete"&&DISQUS.reset({reload:!0,config:disqus_config})})</script></footer></article></section></div><footer class=footer><section class=container>©
 2019 -
 2026
 StephenZzz
