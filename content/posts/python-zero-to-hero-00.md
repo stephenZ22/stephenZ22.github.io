@@ -330,7 +330,279 @@ PYTHON
 ```
 
 #### 容器类型
-WIP
+python 中基础的容器类型有这么几种 `list`, `tuple`, `dict`, `set`. `list` 和 tuple在使用时我把他们当作数组和不可变数组来使用,当然 list的底层实现和传统的数组还是有很大区别 所以python单独有一个 `array`.当明确长度或者元素时python推荐使用tuple, 当然实际开发还是list使用的比较多. `dict` 的命名很形象 很多时候`map`确实像一个字典一样, 存储一对对 `key--value`对, `set`集合可以理解为之存`key` 的map,没有值形式上有点像tuple,关键在于`set`中元素不可重复. 如果有其他语言的基础开始很容易被python异与多数编程语言约定的命名高的有点头大, 不过写多了也就习惯了,尤其是用的语言变多之后本身就是在不同语言业务上下文来回切换. 下面列举一些容器类型的常用操作
+
+##### list 和 tuple
+**list**
+```python
+
+games = ["守望先锋", "英雄联盟", "王者荣耀"]
+
+# 尾部添加
+games.append("绝地求生")
+print(games)  # ['守望先锋', '英雄联盟', '王者荣耀', '绝地求生']
+# 尾部移除
+games.pop()
+print(games)  # ['守望先锋', '英雄联盟', '王者荣耀']
+# 指定位置添加
+games.insert(1, "DOTA2")
+print(games)  # ['守望先锋', 'DOTA2', '英雄联盟', '王者荣耀']
+# 指定位置移除
+games.pop(1)
+print(games)  # ['守望先锋', '英雄联盟', '王者荣耀']
+
+#获取list元素
+print(games[0])  # '守望先锋'
+print(games[1])  # '英雄联盟'
+print(games[-1])  # '王者荣耀'
+print(games[-2])  # '英雄联盟'ss
+# 切片获取子列表
+print(games[0:2])  # ['守望先锋', '英雄联盟']
+print(games[::-1])  # ['王者荣耀', '英雄联盟', '守望先锋']
+# 修改指定元素
+games[0] = "黑神话"
+print(games)
+
+# run
+(.venv) ➜  python-basic git:(main) ✗ python baisc/basic-01.py    
+['守望先锋', '英雄联盟', '王者荣耀', '绝地求生']
+['守望先锋', '英雄联盟', '王者荣耀']
+['守望先锋', 'DOTA2', '英雄联盟', '王者荣耀']
+['守望先锋', '英雄联盟', '王者荣耀']
+守望先锋
+英雄联盟
+王者荣耀
+英雄联盟
+['守望先锋', '英雄联盟']
+['王者荣耀', '英雄联盟', '守望先锋']
+['黑神话', '英雄联盟', '王者荣耀']
+```
+**tuple**
+`tuple`可以理解为只读的list, list支持的插入产删除修改在tuple下都会报错.
+```python
+sports = ("足球", "篮球", "乒乓球")
+print(sports)  # ('足球', '篮球', '乒乓球')
+print(sports[0])     # '足球'
+print(sports[1])     # '篮球'
+print(sports[-1])    # '乒乓球'
+print(sports[0:2])   # ('足球', '篮球')
+print(sports[::-1])  # ('乒乓球', '篮球', '足球')
+
+sports[0] = "羽毛球"  # TypeError: 'tuple' object does not support item assignment
+# sports.append("羽毛球")  # AttributeError: 'tuple' object has no attribute 'append'
+
+# run
+(.venv) ➜  python-basic git:(main) ✗ python baisc/basic-01.py
+('足球', '篮球', '乒乓球')
+足球
+篮球
+乒乓球
+('足球', '篮球')
+('乒乓球', '篮球', '足球')
+Traceback (most recent call last):
+  File "/Users/stephenzzz/code/python-basic/baisc/basic-01.py", line 183, in <module>
+    sports[0] = "羽毛球"  # TypeError: 'tuple' object does not support item assignment
+    ~~~~~~^^^
+TypeError: 'tuple' object does not support item assignment
+
+
+sports = ("足球", "篮球", "乒乓球")
+print(sports)  # ('足球', '篮球', '乒乓球')
+print(sports[0])     # '足球'
+print(sports[1])     # '篮球'
+print(sports[-1])    # '乒乓球'
+print(sports[0:2])   # ('足球', '篮球')
+print(sports[::-1])  # ('乒乓球', '篮球', '足球')
+
+# sports[0] = "羽毛球"  # TypeError: 'tuple' object does not support item assignment
+sports.append("羽毛球")  # AttributeError: 'tuple' object has no attribute 'append'
+
+# run
+(.venv) ➜  python-basic git:(main) ✗ python baisc/basic-01.pys
+('足球', '篮球', '乒乓球')
+足球
+篮球
+乒乓球
+('足球', '篮球')
+('乒乓球', '篮球', '足球')
+Traceback (most recent call last):
+  File "/Users/stephenzzz/code/python-basic/baisc/basic-01.py", line 184, in <module>
+    sports.append("羽毛球")  # AttributeError: 'tuple' object has no attribute 'append'
+    ^^^^^^^^^^^^^
+AttributeError: 'tuple' object has no attribute 'append'
+```
+
+##### dict
+字典和其他语言的map使用方法类似, 这里要注意的 python 3.7 之后dict记录了插入顺序,所以默认是有序的.
+```python
+
+# 插入新的键值对
+username_map["小王"] = "xiaowang000"
+print(username_map)
+# 移除键值对
+username_map.pop("小李")
+# 获取键对应的值，如果键不存在则返回默认值（第二个参数）
+print(username_map.get("小李", "默认值"))
+print(username_map)
+
+# 获取键对应的值，如果键不存在则返回 None
+print(username_map["小明"])  # xiaoming123
+print(username_map.get("小李"))  # None
+# 修改已有的键值对
+username_map["小红"] = "xiaohong999"  
+print(username_map)
+
+# run
+(.venv) ➜  python-basic git:(main) ✗ python baisc/basic-01.py
+{'小明': 'xiaoming123', '小红': 'xiaohong456', '小李': 'xiaoli789', '小王': 'xiaowang000'}
+默认值
+{'小明': 'xiaoming123', '小红': 'xiaohong456', '小王': 'xiaowang000'}
+xiaoming123
+None
+{'小明': 'xiaoming123', '小红': 'xiaohong999', '小王': 'xiaowang000'}
+小明: xiaoming123
+小红: xiaohong999
+小王: xiaowang000
+
+```
+
+##### set
+set 是一个无序且不重复的元素集合。你可以把它理解为只有 Key 没有 Value 的 dict。它的主要用途是去重和快速成员判断。
+```python
+# 1. 定义集合 (使用 {} 或者 set())
+tags = {"python", "coding", "hero", "python"} # 重复的 'python' 会被忽略
+print(f"集合类型: {type(tags)}, 内容: {tags}")
+
+# 2. 添加元素
+tags.add("blog")
+print(tags)
+
+# 3. 删除元素
+tags.remove("coding") # 不存在会报错
+tags.discard("not_exist") # 不存在不会报错
+print(tags)
+
+# 4. 成员判断 (极快)
+print("python" in tags) # True
+
+# 5. 集合运算
+a = {1, 2, 3, 4}
+b = {3, 4, 5, 6}
+
+print(f"并集: {a | b}") # {1, 2, 3, 4, 5, 6}
+print(f"交集: {a & b}") # {3, 4}
+print(f"差集: {a - b}") # {1, 2} (在 a 中但不在 b 中)
+print(f"差集: {b - a}") # {5, 6} (在 b 中但不在 a 中)
+
+# run
+(.venv) ➜  python-basic git:(main) ✗ python baisc/basic-01.py
+集合类型: <class 'set'>, 内容: {'python', 'hero', 'coding'}
+{'python', 'hero', 'coding', 'blog'}
+{'python', 'hero', 'blog'}
+True
+并集: {1, 2, 3, 4, 5, 6}
+交集: {3, 4}
+差集: {1, 2}
+差集: {5, 6}
+```
+
+---
  
 ### 判断与循环
-WIP
+关于判断语句pyton之前没有提供`switch case`语句来简化`if-elif-else`的, 在3.10新增了`mathch-case`,使用方法以及功能和switch case类似, 还有就是python也没有 `cond ? value1 : value2`这样的三目运算符, 与之对应的是使用单行if-else`value1 if cond else value2`取代 
+python 提供两种循环方式`for` `while`这两个和其他语言使用方法类似
+
+#### 判断
+```python
+# --- if-elif-else 传统分支 ---
+score = 85
+if score >= 90:
+    result = "优秀"
+elif score >= 60:
+    result = "及格"
+else:
+    result = "不及格"
+print(f"得分: {score}, 结果: {result}")
+
+# --- 三元运算符 (单行 if-else) ---
+# 语法: [真值] if [条件] else [假值]
+status = "成年" if score >= 18 else "未成年"
+print(f"状态: {status}")
+
+# --- match-case (Python 3.10+ 结构化模式匹配) ---
+command = "start"
+
+match command:
+    case "start":
+        print("游戏开始")
+    case "stop":
+        print("游戏暂停")
+    case "exit":
+        print("退出游戏")
+    case _: # 类似于 switch 的 default
+        print("未知命令")
+
+# run
+(.venv) ➜  python-basic python baisc/basic-01.py
+得分: 85, 结果: 及格
+状态: 成年
+游戏开始
+```
+
+#### 循环
+```python
+# --- for 循环 (遍历序列) ---
+games = ["守望先锋", "英雄联盟", "王者荣耀"]
+for game in games:
+    print(f"正在玩: {game}")
+
+# 遍历 range 数字序列
+for i in range(1, 4):
+    print(f"倒计时: {i}")
+
+# --- while 循环 (基于条件) ---
+count = 3
+while count > 0:
+    print(f"剩余生命: {count}")
+    count -= 1
+
+# --- 循环控制语句: break & continue ---
+print("--- break 示例 ---")
+for num in range(10):
+    if num == 5:
+        break # 满足条件跳出整个循环
+    print(num)
+
+print("--- continue 示例 ---")
+for num in range(5):
+    if num == 2:
+        continue # 满足条件跳过当前本次循环，进入下一次
+    print(num)
+
+# run
+(.venv) ➜  python-basic python baisc/basic-01.py
+正在玩: 守望先锋
+正在玩: 英雄联盟
+正在玩: 王者荣耀
+倒计时: 1
+倒计时: 2
+倒计时: 3
+剩余生命: 3
+剩余生命: 2
+剩余生命: 1
+--- break 示例 ---
+0
+1
+2
+3
+4
+--- continue 示例 ---
+0
+1
+3
+4
+```
+
+---
+### 总结
+我理解如果掌握不止一门编程语言,在学习使用其他语言的时候掌握这些内容基本可以满足开发要求了,当然工程化,多文件moudle，class, 相关生态后续章节进行回顾与总结.
